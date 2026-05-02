@@ -18,33 +18,31 @@ export const siteConfig = {
   founded: "Établi en région PACA",
   owner: "Khemaies Hachani",
 
-  // ─── Contact & location ────────────────────────────────────────────
-  // TODO: Verify against Google Business Profile
+  // ─── Contact & location (verified Google Business Profile) ─────────
   contact: {
-    phone: "+33 6 00 00 00 00",
-    phoneDisplay: "06 00 00 00 00",
+    phone: "+33614019301",
+    phoneDisplay: "06 14 01 93 01",
     email: "contact@ferronnerie-mouansoise.fr",
     address: {
-      street: "Mouans-Sartoux",
+      street: "255 Chemin des Cardelines",
       city: "Mouans-Sartoux",
       postalCode: "06370",
       region: "Alpes-Maritimes",
       country: "France",
       countryCode: "FR",
     },
-    // Mouans-Sartoux town center coordinates — adjust to atelier address
-    geo: { latitude: 43.6206, longitude: 6.9776 },
+    // Approx coordinates for 255 Chemin des Cardelines, Mouans-Sartoux
+    geo: { latitude: 43.6238, longitude: 6.9806 },
   },
 
-  // ─── Hours ─────────────────────────────────────────────────────────
-  // TODO: Verify against Google Business Profile
+  // ─── Hours (verified Google Business Profile) ──────────────────────
   hours: [
-    { day: "Lundi", open: "08:00", close: "18:00" },
-    { day: "Mardi", open: "08:00", close: "18:00" },
-    { day: "Mercredi", open: "08:00", close: "18:00" },
-    { day: "Jeudi", open: "08:00", close: "18:00" },
-    { day: "Vendredi", open: "08:00", close: "18:00" },
-    { day: "Samedi", open: "Sur rendez-vous", close: null },
+    { day: "Lundi", open: "08:00", close: "17:00" },
+    { day: "Mardi", open: "08:00", close: "17:00" },
+    { day: "Mercredi", open: "08:00", close: "17:00" },
+    { day: "Jeudi", open: "08:00", close: "17:00" },
+    { day: "Vendredi", open: "08:00", close: "17:00" },
+    { day: "Samedi", open: "Fermé", close: null },
     { day: "Dimanche", open: "Fermé", close: null },
   ],
 
