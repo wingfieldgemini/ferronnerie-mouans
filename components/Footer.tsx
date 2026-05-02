@@ -12,13 +12,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           <div className="md:col-span-4">
             <div className="flex items-center gap-3 mb-6">
-              <Image
-                src="/assets/logo.png"
-                alt=""
-                width={56}
-                height={56}
-                className="rounded-full bg-[color:var(--color-parchment)] p-1"
-              />
+              <div className="size-14 shrink-0 rounded-full bg-[color:var(--color-parchment)] p-1.5 flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/assets/logo.png"
+                  alt=""
+                  width={56}
+                  height={56}
+                  className="size-full object-contain"
+                />
+              </div>
               <div className="font-[family-name:var(--font-display)] text-2xl leading-tight">
                 {siteConfig.name}
               </div>

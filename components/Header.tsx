@@ -13,14 +13,16 @@ export function Header() {
           aria-label={`Accueil — ${siteConfig.name}`}
           className="flex items-center gap-3 group"
         >
-          <Image
-            src="/assets/logo.png"
-            alt=""
-            width={48}
-            height={48}
-            priority
-            className="rounded-full"
-          />
+          <div className="size-12 shrink-0 rounded-full overflow-hidden flex items-center justify-center">
+            <Image
+              src="/assets/logo.png"
+              alt=""
+              width={48}
+              height={48}
+              priority
+              className="size-full object-contain"
+            />
+          </div>
           <span className="hidden sm:flex flex-col leading-tight">
             <span className="font-[family-name:var(--font-display)] text-xl tracking-tight">
               {siteConfig.name}

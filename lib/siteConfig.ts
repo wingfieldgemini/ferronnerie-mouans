@@ -205,7 +205,6 @@ export const siteConfig = {
     { href: "/atelier", label: "L'atelier" },
     { href: "/services", label: "Savoir-faire" },
     { href: "/realisations", label: "Réalisations" },
-    { href: "/contact", label: "Contact" },
   ],
 } as const;
 
