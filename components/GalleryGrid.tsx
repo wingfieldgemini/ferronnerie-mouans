@@ -41,43 +41,41 @@ export function GalleryGrid({ items }: Props) {
 
   return (
     <>
-      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-        {items.map((item, i) => {
-          const isFeature = i % 7 === 0;
-          return (
-            <li
-              key={item.src}
-              className={`${isFeature ? "col-span-2 row-span-2 aspect-square" : "aspect-[4/5]"} relative group overflow-hidden bg-[color:var(--color-cream)]`}
+      <ul className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+        {items.map((item, i) => (
+          <li
+            key={item.src}
+            className="aspect-square relative group overflow-hidden bg-[color:var(--color-cream)]"
+          >
+            <button
+              type="button"
+              onClick={() => setActive(i)}
+              className="absolute inset-0 w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-iron)] focus-visible:ring-offset-2"
+              aria-label={`Agrandir : ${item.alt}`}
             >
-              <button
-                type="button"
-                onClick={() => setActive(i)}
-                className="absolute inset-0 w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-iron)] focus-visible:ring-offset-2"
-                aria-label={`Agrandir : ${item.alt}`}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
-                />
-                <div
-                  aria-hidden
-                  className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-left translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <span className="text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-ember)] block mb-1">
-                    {item.category}
-                  </span>
-                  <span className="text-[color:var(--color-parchment)] text-sm leading-snug">
-                    {item.alt}
-                  </span>
-                </div>
-              </button>
-            </li>
-          );
-        })}
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                quality={90}
+                sizes="(max-width: 768px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 text-left translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                <span className="text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-ember)] block mb-1">
+                  {item.category}
+                </span>
+                <span className="text-[color:var(--color-parchment)] text-sm leading-snug">
+                  {item.alt}
+                </span>
+              </div>
+            </button>
+          </li>
+        ))}
       </ul>
 
       {active !== null && (
@@ -126,6 +124,7 @@ export function GalleryGrid({ items }: Props) {
               src={items[active].src}
               alt={items[active].alt}
               fill
+              quality={95}
               sizes="100vw"
               className="object-contain"
               priority

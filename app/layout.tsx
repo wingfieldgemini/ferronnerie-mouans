@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import { siteConfig } from "@/lib/siteConfig";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
-const display = Cormorant_Garamond({
+const display = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  axes: ["opsz", "SOFT"],
   variable: "--font-display",
   display: "swap",
 });

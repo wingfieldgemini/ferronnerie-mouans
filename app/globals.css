@@ -11,12 +11,12 @@
   --color-mist: #a8a097;
   --color-hairline: #d9d1c4;
 
-  --font-display: var(--font-display), "Cormorant Garamond", "Times New Roman", serif;
+  --font-display: var(--font-display), "Fraunces", "Times New Roman", serif;
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --text-display: clamp(3rem, 1rem + 7vw, 7.5rem);
-  --text-h1: clamp(2.25rem, 1.4rem + 3.4vw, 4.25rem);
-  --text-h2: clamp(1.75rem, 1.2rem + 2.2vw, 3rem);
+  --text-display: clamp(3.25rem, 1rem + 8.5vw, 9rem);
+  --text-h1: clamp(2.5rem, 1.4rem + 4vw, 5rem);
+  --text-h2: clamp(2rem, 1.2rem + 2.6vw, 3.5rem);
 
   --space-section: clamp(4rem, 3rem + 5vw, 9rem);
 
@@ -49,26 +49,15 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 500;
-    letter-spacing: -0.015em;
-    line-height: 1.05;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+    letter-spacing: -0.025em;
+    line-height: 1;
     color: var(--color-ink);
   }
 
   ::selection {
     background: var(--color-iron);
     color: var(--color-parchment);
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.02;
-    mix-blend-mode: multiply;
-    background-image:
-      repeating-radial-gradient(circle at 0 0, #1a1612 0, #1a1612 1px, transparent 1px, transparent 3px);
   }
 
   @media (prefers-reduced-motion: reduce) {

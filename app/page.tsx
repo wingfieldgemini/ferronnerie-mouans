@@ -50,16 +50,17 @@ export default function HomePage() {
         title="Dernières pièces sorties d'atelier."
         tone="cream"
       >
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-          {featuredGallery.map((g, i) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+          {featuredGallery.map((g) => (
             <div
               key={g.src}
-              className={`${i === 0 ? "col-span-2 row-span-2 aspect-square" : "aspect-[4/5]"} relative overflow-hidden bg-[color:var(--color-parchment)]`}
+              className="aspect-square relative overflow-hidden bg-[color:var(--color-parchment)]"
             >
               <Image
                 src={g.src}
                 alt={g.alt}
                 fill
+                quality={90}
                 sizes="(max-width: 768px) 50vw, 33vw"
                 className="object-cover"
               />

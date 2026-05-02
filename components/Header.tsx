@@ -7,7 +7,7 @@ import { CtaButton } from "./CtaButton";
 export function Header() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-[color:var(--color-parchment)]/85 border-b border-[color:var(--color-hairline)]">
-      <div className="container-page flex items-center justify-between h-20 md:h-24">
+      <div className="container-page flex items-center justify-between h-16 md:h-20">
         <Link
           href="/"
           aria-label={`Accueil — ${siteConfig.name}`}

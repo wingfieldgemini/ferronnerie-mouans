@@ -34,15 +34,17 @@ export function Section({
     >
       <div className="container-page relative z-10">
         {(eyebrow || title || kicker) && (
-          <header className="max-w-3xl mb-14 md:mb-20">
-            {eyebrow && <p className="eyebrow mb-6">{eyebrow}</p>}
-            {title && (
-              <h2 className="text-balance text-[length:var(--text-h2)] leading-[1.05] tracking-tight">
-                {title}
-              </h2>
-            )}
+          <header className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-16 md:mb-24 items-end">
+            <div className="lg:col-span-7">
+              {eyebrow && <p className="eyebrow mb-8">{eyebrow}</p>}
+              {title && (
+                <h2 className="text-balance text-[length:var(--text-h2)] leading-[0.98] tracking-[-0.025em] font-medium">
+                  {title}
+                </h2>
+              )}
+            </div>
             {kicker && (
-              <p className="mt-6 text-pretty text-lg md:text-xl text-[color:var(--color-smoke)] max-w-2xl">
+              <p className="lg:col-span-5 text-pretty text-base md:text-lg text-[color:var(--color-smoke)] leading-relaxed lg:max-w-md lg:justify-self-end">
                 {kicker}
               </p>
             )}
