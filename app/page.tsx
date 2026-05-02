@@ -76,14 +76,14 @@ export default function HomePage() {
 
       {/* CTA band */}
       <section className="bg-[color:var(--color-ink)] text-[color:var(--color-parchment)]">
-        <div className="container-page py-24 md:py-32 text-center">
-          <p className="eyebrow justify-center mb-8 text-[color:var(--color-ember)]">
+        <div className="container-page py-14 md:py-20 text-center">
+          <p className="eyebrow justify-center mb-5 text-[color:var(--color-ember)]">
             Un projet en tête
           </p>
-          <h2 className="font-[family-name:var(--font-display)] text-[length:var(--text-h1)] leading-[0.95] tracking-tight max-w-3xl mx-auto text-balance">
+          <h2 className="font-[family-name:var(--font-display)] text-[length:var(--text-h2)] leading-[0.98] tracking-tight max-w-2xl mx-auto text-balance">
             Échangeons sur votre projet — devis gratuit, sans engagement.
           </h2>
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-5">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
             <CtaButton href="/contact" variant="primary">
               Demander un devis
             </CtaButton>

@@ -55,6 +55,13 @@
     color: var(--color-ink);
   }
 
+  /* Desktop: display-tuned letterforms (the look you liked) */
+  @media (min-width: 768px) {
+    h1, h2, h3, h4 {
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+    }
+  }
+
   ::selection {
     background: var(--color-iron);
     color: var(--color-parchment);
