@@ -11,7 +11,7 @@
   --color-mist: #a8a097;
   --color-hairline: #d9d1c4;
 
-  --font-display: var(--font-display), "Fraunces", "Times New Roman", serif;
+  --font-display: var(--font-display), "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --text-display: clamp(3.25rem, 1rem + 8.5vw, 9rem);
@@ -49,17 +49,9 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 500;
-    font-optical-sizing: auto;
-    letter-spacing: -0.025em;
-    line-height: 1;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
     color: var(--color-ink);
-  }
-
-  /* Desktop: display-tuned letterforms (the look you liked) */
-  @media (min-width: 768px) {
-    h1, h2, h3, h4 {
-      font-variation-settings: "opsz" 144, "SOFT" 30;
-    }
   }
 
   ::selection {
