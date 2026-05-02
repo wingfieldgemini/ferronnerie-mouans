@@ -11,17 +11,11 @@ export function Hero() {
             <p className="eyebrow mb-10">
               Ferronnier d&apos;art · {siteConfig.contact.address.city}
             </p>
-            <h1
-              className="font-[family-name:var(--font-display)] text-[length:var(--text-display)] leading-[0.92] tracking-[-0.035em] text-balance font-medium"
-              style={{ fontVariationSettings: '"opsz" 144, "SOFT" 30' }}
-            >
+            <h1 className="font-[family-name:var(--font-display)] text-[length:var(--text-display)] leading-[0.92] tracking-[-0.035em] text-balance font-medium">
               L&apos;art du fer
               <br />
               forgé,{" "}
-              <span
-                className="italic font-normal text-[color:var(--color-iron)]"
-                style={{ fontVariationSettings: '"opsz" 144, "SOFT" 100' }}
-              >
+              <span className="italic font-normal text-[color:var(--color-iron)]">
                 façonné
               </span>
               <br />

@@ -49,7 +49,7 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 500;
-    font-variation-settings: "opsz" 144, "SOFT" 30;
+    font-optical-sizing: auto;
     letter-spacing: -0.025em;
     line-height: 1;
     color: var(--color-ink);
