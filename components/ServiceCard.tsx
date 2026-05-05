@@ -1,4 +1,3 @@
-import { Check } from "lucide-react";
 import type { siteConfig } from "@/lib/siteConfig";
 
 type Service = (typeof siteConfig)["services"][number];
@@ -6,38 +5,52 @@ type Service = (typeof siteConfig)["services"][number];
 type Props = {
   service: Service;
   index: number;
+  tone?: "dark" | "light";
 };
 
-export function ServiceCard({ service, index }: Props) {
+export function ServiceCard({ service, index, tone = "dark" }: Props) {
   const number = String(index + 1).padStart(2, "0");
+  const isDark = tone === "dark";
 
   return (
-    <article className="group relative flex flex-col h-full bg-[color:var(--color-parchment)] border border-[color:var(--color-hairline)] p-8 md:p-10 transition-colors duration-500 hover:border-[color:var(--color-iron)]">
-      <div className="flex items-baseline justify-between gap-6 mb-8">
+    <article
+      className={`group flex flex-col p-8 md:p-10 border-t transition-colors duration-500 ${
+        isDark
+          ? "border-[color:var(--color-hairline-dark)] hover:border-[color:var(--color-iron)]"
+          : "border-[color:var(--color-hairline)] hover:border-[color:var(--color-iron)]"
+      }`}
+    >
+      <div className="flex items-baseline justify-between mb-8">
         <span className="font-[family-name:var(--font-display)] text-5xl text-[color:var(--color-iron)] leading-none">
           {number}
         </span>
-        <span className="text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-mist)]">
-          / Savoir-faire
-        </span>
       </div>
 
-      <h3 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl leading-[1.05] tracking-tight mb-5">
+      <h3
+        className={`font-[family-name:var(--font-display)] text-3xl md:text-4xl leading-tight tracking-tight mb-4 ${
+          isDark ? "text-[color:var(--color-parchment)]" : "text-[color:var(--color-ink)]"
+        }`}
+      >
         {service.title}
       </h3>
 
-      <p className="text-[color:var(--color-smoke)] text-base leading-relaxed mb-8 text-pretty">
+      <p
+        className={`text-sm leading-relaxed text-pretty mb-8 flex-1 ${
+          isDark ? "text-[color:var(--color-mist)]" : "text-[color:var(--color-smoke)]"
+        }`}
+      >
         {service.summary}
       </p>
 
-      <ul className="mt-auto space-y-3 pt-6 border-t border-[color:var(--color-hairline)]">
+      <ul className="space-y-2.5 mt-auto">
         {service.bullets.map((b) => (
-          <li key={b} className="flex items-start gap-3 text-sm text-[color:var(--color-smoke)]">
-            <Check
-              size={16}
-              strokeWidth={1.75}
-              className="mt-0.5 shrink-0 text-[color:var(--color-iron)]"
-            />
+          <li
+            key={b}
+            className={`flex items-start gap-3 text-xs ${
+              isDark ? "text-[color:var(--color-mist)]" : "text-[color:var(--color-smoke)]"
+            }`}
+          >
+            <span className="text-[color:var(--color-iron)] shrink-0 mt-px">—</span>
             <span>{b}</span>
           </li>
         ))}

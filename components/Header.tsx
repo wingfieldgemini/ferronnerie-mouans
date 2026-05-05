@@ -1,97 +1,123 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Menu } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 import { CtaButton } from "./CtaButton";
 
 export function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const solid = scrolled || menuOpen;
+
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-[color:var(--color-parchment)]/85 border-b border-[color:var(--color-hairline)]">
-      <div className="container-page flex items-center justify-between h-16 md:h-20">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[var(--ease-out-expo)] ${
+        solid
+          ? "bg-[color:var(--color-ink)] border-b border-[color:var(--color-hairline-dark)]"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container-page flex items-center justify-between h-20">
+        {/* Logo */}
         <Link
           href="/"
           aria-label={`Accueil — ${siteConfig.name}`}
-          className="flex items-center gap-3 group"
+          className="flex items-center gap-3.5 group"
         >
-          <div className="size-12 shrink-0 rounded-full overflow-hidden flex items-center justify-center">
+          <div className="size-9 shrink-0 rounded-full overflow-hidden ring-1 ring-[color:var(--color-iron)]/20 bg-[color:var(--color-parchment)]/8 transition-all duration-500 group-hover:ring-[color:var(--color-iron)]/50">
             <Image
               src="/assets/logo.png"
               alt=""
-              width={48}
-              height={48}
+              width={36}
+              height={36}
               priority
               className="size-full object-contain"
             />
           </div>
-          <span className="hidden sm:flex flex-col leading-tight">
-            <span className="font-[family-name:var(--font-display)] text-xl tracking-tight">
+          <span className="hidden sm:flex flex-col leading-none gap-1">
+            <span className="font-[family-name:var(--font-display)] text-[1.2rem] text-[color:var(--color-parchment)] tracking-[-0.02em] transition-colors duration-300 group-hover:text-[color:var(--color-iron)]">
               {siteConfig.name}
             </span>
-            <span className="text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-smoke)]">
-              {siteConfig.contact.address.city} · 06
+            <span className="label text-[color:var(--color-mist)] text-[9px] tracking-[0.2em]">
+              Ferronnier d&apos;art
             </span>
           </span>
         </Link>
 
+        {/* Desktop nav */}
         <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-9">
           {siteConfig.nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-[color:var(--color-ink)] hover:text-[color:var(--color-iron)] transition-colors duration-300 ease-[var(--ease-out-expo)] relative after:absolute after:left-0 after:-bottom-1.5 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-[color:var(--color-iron)] after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
+              className="font-[family-name:var(--font-display)] text-[1.05rem] text-[color:var(--color-parchment)]/85 hover:text-[color:var(--color-iron)] tracking-[-0.01em] transition-colors duration-300 relative after:absolute after:bottom-[-3px] after:left-0 after:right-0 after:h-px after:bg-[color:var(--color-iron)] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-[var(--ease-out-expo)] hover:after:scale-x-100"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
+        {/* Desktop right */}
+        <div className="hidden md:flex items-center gap-5">
           <a
             href={`tel:${siteConfig.contact.phone}`}
-            className="flex items-center gap-2 text-sm text-[color:var(--color-smoke)] hover:text-[color:var(--color-ink)] transition-colors"
+            className="eyebrow text-[color:var(--color-mist)] hover:text-[color:var(--color-parchment)] transition-colors flex items-center gap-2"
           >
-            <Phone size={15} strokeWidth={1.75} />
-            <span className="font-medium tracking-wide">
-              {siteConfig.contact.phoneDisplay}
-            </span>
+            <Phone size={13} strokeWidth={2} />
+            {siteConfig.contact.phoneDisplay}
           </a>
           <CtaButton href="/contact" variant="primary" withArrow={false}>
             Devis
           </CtaButton>
         </div>
 
-        <details className="lg:hidden relative">
-          <summary
-            aria-label="Ouvrir le menu"
-            className="list-none p-2 cursor-pointer text-[color:var(--color-ink)] [&::-webkit-details-marker]:hidden"
-          >
-            <Menu size={26} strokeWidth={1.5} />
-          </summary>
-          <div className="absolute right-0 top-full mt-2 w-72 bg-[color:var(--color-parchment)] border border-[color:var(--color-hairline)] shadow-xl">
-            <ul className="py-3">
-              {siteConfig.nav.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="block px-6 py-3 text-base text-[color:var(--color-ink)] hover:bg-[color:var(--color-cream)] transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-              <li className="border-t border-[color:var(--color-hairline)] mt-2 pt-3 px-6 pb-4">
-                <a
-                  href={`tel:${siteConfig.contact.phone}`}
-                  className="flex items-center gap-2 text-sm text-[color:var(--color-iron)] font-medium"
-                >
-                  <Phone size={15} strokeWidth={1.75} />
-                  {siteConfig.contact.phoneDisplay}
-                </a>
-              </li>
-            </ul>
-          </div>
-        </details>
+        {/* Mobile toggle */}
+        <button
+          type="button"
+          className="lg:hidden p-2 text-[color:var(--color-parchment)] transition-colors hover:text-[color:var(--color-iron)]"
+          onClick={() => setMenuOpen((o) => !o)}
+          aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div className="lg:hidden border-t border-[color:var(--color-hairline-dark)]">
+          <nav className="container-page py-8 flex flex-col gap-6">
+            {siteConfig.nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="font-[family-name:var(--font-display)] text-2xl text-[color:var(--color-parchment)] hover:text-[color:var(--color-iron)] transition-colors"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <a
+              href={`tel:${siteConfig.contact.phone}`}
+              className="eyebrow text-[color:var(--color-iron)] mt-2 flex items-center gap-2"
+            >
+              <Phone size={13} strokeWidth={2} />
+              {siteConfig.contact.phoneDisplay}
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

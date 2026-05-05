@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { siteConfig } from "@/lib/siteConfig";
-import { Send } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 type Status = "idle" | "submitting" | "ok" | "error";
 
@@ -31,15 +31,19 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <form onSubmit={onSubmit} className="space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <Field name="name" label="Votre nom" required />
         <Field name="email" type="email" label="Email" required />
         <Field name="phone" type="tel" label="Téléphone" />
         <Field name="project" label="Type de projet" placeholder="Portail, escalier…" />
       </div>
+
       <div>
-        <label htmlFor="message" className="block mb-2 text-xs uppercase tracking-[0.18em] text-[color:var(--color-smoke)] font-medium">
+        <label
+          htmlFor="message"
+          className="block mb-3 eyebrow text-[color:var(--color-smoke)] text-[10px]"
+        >
           Décrivez votre projet
         </label>
         <textarea
@@ -47,19 +51,23 @@ export function ContactForm() {
           name="message"
           rows={6}
           required
-          className="w-full bg-transparent border-b border-[color:var(--color-hairline)] py-3 text-base focus:border-[color:var(--color-iron)] focus:outline-none transition-colors resize-none"
+          className="w-full bg-transparent border-b border-[color:var(--color-hairline)] py-3 px-2 text-base text-[color:var(--color-ink)] focus:border-[color:var(--color-iron)] focus:outline-none focus:bg-[color:var(--color-cream)]/40 transition-all duration-300 resize-none placeholder:text-[color:var(--color-mist)] rounded-none"
           placeholder="Dimensions, style recherché, contraintes du lieu…"
         />
       </div>
 
-      <div className="pt-4">
+      <div className="pt-2">
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="group inline-flex items-center gap-3 bg-[color:var(--color-ink)] text-[color:var(--color-parchment)] px-8 py-4 text-sm uppercase tracking-[0.18em] font-medium hover:bg-[color:var(--color-iron)] focus-visible:bg-[color:var(--color-iron)] transition-colors duration-300 disabled:opacity-60"
+          className="group inline-flex items-center gap-3 bg-[color:var(--color-ink)] text-[color:var(--color-parchment)] px-8 py-4 eyebrow text-[10px] hover:bg-[color:var(--color-iron)] hover:text-[color:var(--color-ink)] focus-visible:bg-[color:var(--color-iron)] focus-visible:text-[color:var(--color-ink)] transition-all duration-500 ease-[var(--ease-out-expo)] disabled:opacity-50 focus:outline-none"
         >
           {status === "submitting" ? "Envoi…" : "Envoyer ma demande"}
-          <Send size={15} strokeWidth={1.75} className="transition-transform group-hover:translate-x-0.5" />
+          <ArrowUpRight
+            size={14}
+            strokeWidth={2}
+            className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
         </button>
         {status === "ok" && (
           <p className="mt-4 text-sm text-[color:var(--color-iron)]">
@@ -86,8 +94,14 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={name} className="block mb-2 text-xs uppercase tracking-[0.18em] text-[color:var(--color-smoke)] font-medium">
-        {label}{required && <span className="text-[color:var(--color-iron)]"> *</span>}
+      <label
+        htmlFor={name}
+        className="block mb-3 eyebrow text-[color:var(--color-smoke)] text-[10px]"
+      >
+        {label}
+        {required && (
+          <span className="text-[color:var(--color-iron)] ml-1">*</span>
+        )}
       </label>
       <input
         id={name}
@@ -95,7 +109,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="w-full bg-transparent border-b border-[color:var(--color-hairline)] py-3 text-base focus:border-[color:var(--color-iron)] focus:outline-none transition-colors"
+        className="w-full bg-transparent border-b border-[color:var(--color-hairline)] py-3 px-2 text-base text-[color:var(--color-ink)] focus:border-[color:var(--color-iron)] focus:outline-none focus:bg-[color:var(--color-cream)]/40 transition-all duration-300 placeholder:text-[color:var(--color-mist)] rounded-none"
       />
     </div>
   );

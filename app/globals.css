@@ -1,103 +1,147 @@
 @import "tailwindcss";
 
 @theme {
-  --color-iron: #b85431;
-  --color-iron-deep: #8b3d22;
-  --color-ember: #d4793f;
-  --color-parchment: #ffffff;
-  --color-cream: #f5f4f1;
-  --color-ink: #1a1612;
-  --color-smoke: #5c534a;
-  --color-mist: #a8a097;
-  --color-hairline: #d9d1c4;
+  /* ─── Palette ─────────────────────────────────── */
+  --color-iron:        #c9a84c;
+  --color-iron-deep:   #a8892a;
+  --color-ember:       #dfc06a;
+  --color-parchment:   #f5f0e9;
+  --color-cream:       #ede7dd;
+  --color-ink:         #0b0a08;
+  --color-smoke:       #5a5047;
+  --color-mist:        #8a7f74;
+  --color-hairline:    #d8cfc0;
+  --color-hairline-dark: #1e1c18;
 
-  --font-display: var(--font-display), "Cormorant Garamond", "Times New Roman", serif;
-  --font-sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* ─── Typography ──────────────────────────────── */
+  --font-display: var(--font-display), "Cormorant Garamond", serif;
+  --font-sans:    var(--font-sans), "DM Sans", ui-sans-serif, system-ui, sans-serif;
 
-  --text-display: clamp(3.25rem, 1rem + 8.5vw, 9rem);
-  --text-h1: clamp(2.5rem, 1.4rem + 4vw, 5rem);
-  --text-h2: clamp(2rem, 1.2rem + 2.6vw, 3.5rem);
+  /* Editorial scale — broader jumps create real hierarchy */
+  --text-display: clamp(4rem, 1rem + 8vw, 9rem);
+  --text-h1:      clamp(2.75rem, 1rem + 5vw, 6.5rem);
+  --text-h2:      clamp(2.125rem, 0.875rem + 3.5vw, 4.5rem);
+  --text-h3:      clamp(1.5rem, 0.875rem + 1.75vw, 2.5rem);
 
-  --space-section: clamp(4rem, 3rem + 5vw, 9rem);
+  /* ─── Spacing tokens ──────────────────────────── */
+  --space-xs:   clamp(0.5rem,  0.25rem + 0.5vw, 0.75rem);
+  --space-sm:   clamp(0.875rem, 0.5rem + 1vw, 1.25rem);
+  --space-md:   clamp(1.5rem,  0.75rem + 2vw, 2.5rem);
+  --space-lg:   clamp(2.5rem,  1.25rem + 3.5vw, 5rem);
+  --space-xl:   clamp(4rem,    2rem + 5vw, 8rem);
+  --space-2xl:  clamp(6rem,    3rem + 7vw, 12rem);
+  --space-section: clamp(6rem, 4rem + 8vw, 14rem);
 
+  /* ─── Motion ──────────────────────────────────── */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* ═══════════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════════ */
 @layer base {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+  *, *::before, *::after { box-sizing: border-box; }
 
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   body {
-    background: var(--color-parchment);
-    color: var(--color-ink);
+    background: var(--color-ink);
+    color:      var(--color-parchment);
     font-family: var(--font-sans);
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
     margin: 0;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.015em;
-    line-height: 1.05;
-    color: var(--color-ink);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 0.95;
+    color: inherit;
+    margin: 0;
   }
 
   ::selection {
     background: var(--color-iron);
-    color: var(--color-parchment);
+    color: var(--color-ink);
   }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+    .reveal { opacity: 1 !important; transform: none !important; }
   }
 }
 
+/* ═══════════════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════════════ */
 @layer utilities {
   .container-page {
     width: 100%;
-    max-width: 1240px;
+    max-width: 1340px;
     margin-inline: auto;
-    padding-inline: clamp(1.25rem, 1rem + 2vw, 2.5rem);
+    padding-inline: clamp(1.5rem, 1rem + 3.5vw, 4rem);
   }
 
   .text-balance { text-wrap: balance; }
-  .text-pretty { text-wrap: pretty; }
-  .hairline { border-color: var(--color-hairline); }
+  .text-pretty  { text-wrap: pretty; }
 
+  /* Label — small-caps UI text */
+  .label {
+    font-family: var(--font-sans);
+    font-size:   0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* Legacy alias kept for existing markup */
   .eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.625rem;
     font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
+    font-size:   0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--color-iron);
   }
 
-  .eyebrow::before {
-    content: "";
-    width: 1.75rem;
-    height: 1px;
-    background: currentColor;
-    display: block;
+  /* ─── Scroll-reveal ───────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+      opacity   0.9s var(--ease-out-expo) var(--delay, 0ms),
+      transform 0.9s var(--ease-out-expo) var(--delay, 0ms);
+  }
+  .reveal[data-visible] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── Horizontal fade-in (for stat items etc.) ── */
+  .reveal-x {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition:
+      opacity   0.7s var(--ease-out-expo) var(--delay, 0ms),
+      transform 0.7s var(--ease-out-expo) var(--delay, 0ms);
+  }
+  .reveal-x[data-visible] {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

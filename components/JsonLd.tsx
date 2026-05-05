@@ -53,16 +53,24 @@ export function JsonLd() {
     openingHoursSpecification: openingHours,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Savoir-faire",
-      itemListElement: siteConfig.services.map((s) => ({
-        "@type": "Offer",
-        itemOffered: {
+      name: "Savoir-faire en ferronnerie d'art",
+      itemListElement: siteConfig.services.map((s, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
           "@type": "Service",
+          "@id": `${siteConfig.url}/services/${s.slug}`,
           name: s.title,
-          description: s.summary,
+          description: s.longDescription,
+          url: `${siteConfig.url}/services/${s.slug}`,
+          provider: {
+            "@type": "LocalBusiness",
+            "@id": `${siteConfig.url}/#business`,
+          },
         },
       })),
     },
+    sameAs: [siteConfig.social.google],
   };
 
   return (

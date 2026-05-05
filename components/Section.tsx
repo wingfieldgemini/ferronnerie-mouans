@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-type Tone = "parchment" | "cream" | "ink";
+type Tone = "light" | "cream" | "dark";
 
 type Props = {
   eyebrow?: string;
@@ -13,9 +13,21 @@ type Props = {
 };
 
 const toneClass: Record<Tone, string> = {
-  parchment: "bg-parchment text-ink",
+  light: "bg-parchment text-ink",
   cream: "bg-cream text-ink",
-  ink: "bg-ink text-parchment",
+  dark: "bg-ink text-parchment",
+};
+
+const eyebrowColor: Record<Tone, string> = {
+  light: "text-[color:var(--color-iron)]",
+  cream: "text-[color:var(--color-iron-deep)]",
+  dark: "text-[color:var(--color-ember)]",
+};
+
+const kickerColor: Record<Tone, string> = {
+  light: "text-[color:var(--color-smoke)]",
+  cream: "text-[color:var(--color-smoke)]",
+  dark: "text-[color:var(--color-mist)]",
 };
 
 export function Section({
@@ -23,7 +35,7 @@ export function Section({
   title,
   kicker,
   children,
-  tone = "parchment",
+  tone = "dark",
   id,
   className = "",
 }: Props) {
@@ -36,15 +48,21 @@ export function Section({
         {(eyebrow || title || kicker) && (
           <header className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-16 md:mb-24 items-end">
             <div className="lg:col-span-7">
-              {eyebrow && <p className="eyebrow mb-8">{eyebrow}</p>}
+              {eyebrow && (
+                <p className={`eyebrow mb-6 md:mb-8 ${eyebrowColor[tone]}`}>
+                  {eyebrow}
+                </p>
+              )}
               {title && (
-                <h2 className="text-balance text-[length:var(--text-h2)] leading-[0.98] tracking-[-0.025em] font-medium">
+                <h2 className="text-balance text-[length:var(--text-h2)] leading-[0.95] tracking-[-0.025em]">
                   {title}
                 </h2>
               )}
             </div>
             {kicker && (
-              <p className="lg:col-span-5 text-pretty text-base md:text-lg text-[color:var(--color-smoke)] leading-relaxed lg:max-w-md lg:justify-self-end">
+              <p
+                className={`lg:col-span-5 text-pretty text-base md:text-lg leading-relaxed lg:max-w-md lg:justify-self-end ${kickerColor[tone]}`}
+              >
                 {kicker}
               </p>
             )}

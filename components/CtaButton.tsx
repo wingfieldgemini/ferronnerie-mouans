@@ -2,25 +2,17 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
 
-type Variant = "primary" | "ghost" | "outline";
+type Variant = "primary" | "ghost" | "outline" | "text";
 
-type Props = {
+interface Props {
   href: string;
   variant?: Variant;
   children: ReactNode;
   className?: string;
   external?: boolean;
   withArrow?: boolean;
-};
-
-const variantClass: Record<Variant, string> = {
-  primary:
-    "bg-[color:var(--color-iron)] text-[color:var(--color-parchment)] hover:bg-[color:var(--color-iron-deep)] focus-visible:bg-[color:var(--color-iron-deep)]",
-  ghost:
-    "bg-transparent text-[color:var(--color-ink)] hover:bg-[color:var(--color-cream)] focus-visible:bg-[color:var(--color-cream)]",
-  outline:
-    "bg-transparent text-[color:var(--color-ink)] ring-1 ring-[color:var(--color-ink)] hover:bg-[color:var(--color-ink)] hover:text-[color:var(--color-parchment)] focus-visible:bg-[color:var(--color-ink)] focus-visible:text-[color:var(--color-parchment)]",
-};
+  onDark?: boolean;
+}
 
 export function CtaButton({
   href,
@@ -29,17 +21,66 @@ export function CtaButton({
   className = "",
   external = false,
   withArrow = true,
+  onDark = true,
 }: Props) {
   const base =
-    "group inline-flex items-center gap-2.5 px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] transition-colors duration-300 ease-[var(--ease-out-expo)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-iron)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-parchment)]";
+    "group inline-flex items-center gap-2.5 label transition-all duration-300 ease-[var(--ease-out-expo)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+
+  const variants: Record<Variant, string> = {
+    primary: [
+      "px-7 py-3.5",
+      "bg-[color:var(--color-iron)] text-[color:var(--color-ink)]",
+      "hover:bg-[color:var(--color-iron-deep)]",
+      "focus-visible:ring-[color:var(--color-iron)]",
+      onDark
+        ? "focus-visible:ring-offset-[color:var(--color-ink)]"
+        : "focus-visible:ring-offset-[color:var(--color-parchment)]",
+    ].join(" "),
+
+    ghost: [
+      "px-7 py-3.5",
+      "bg-transparent",
+      onDark
+        ? "text-[color:var(--color-parchment)] hover:text-[color:var(--color-iron)]"
+        : "text-[color:var(--color-ink)] hover:text-[color:var(--color-iron)]",
+      "focus-visible:ring-[color:var(--color-iron)]",
+      onDark
+        ? "focus-visible:ring-offset-[color:var(--color-ink)]"
+        : "focus-visible:ring-offset-[color:var(--color-parchment)]",
+    ].join(" "),
+
+    outline: [
+      "px-7 py-3.5",
+      "bg-transparent ring-1",
+      onDark
+        ? "ring-[color:var(--color-parchment)]/25 text-[color:var(--color-parchment)] hover:ring-[color:var(--color-iron)] hover:text-[color:var(--color-iron)]"
+        : "ring-[color:var(--color-ink)]/30 text-[color:var(--color-ink)] hover:ring-[color:var(--color-iron)] hover:text-[color:var(--color-iron)]",
+      "focus-visible:ring-[color:var(--color-iron)]",
+      onDark
+        ? "focus-visible:ring-offset-[color:var(--color-ink)]"
+        : "focus-visible:ring-offset-[color:var(--color-parchment)]",
+    ].join(" "),
+
+    text: [
+      "gap-1.5",
+      "bg-transparent",
+      onDark
+        ? "text-[color:var(--color-mist)] hover:text-[color:var(--color-parchment)]"
+        : "text-[color:var(--color-smoke)] hover:text-[color:var(--color-ink)]",
+      "focus-visible:ring-[color:var(--color-iron)]",
+      onDark
+        ? "focus-visible:ring-offset-[color:var(--color-ink)]"
+        : "focus-visible:ring-offset-[color:var(--color-parchment)]",
+    ].join(" "),
+  };
 
   const inner = (
     <>
       <span>{children}</span>
       {withArrow && (
         <ArrowUpRight
-          size={16}
-          strokeWidth={1.75}
+          size={14}
+          strokeWidth={2}
           className="transition-transform duration-300 ease-[var(--ease-out-expo)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
         />
       )}
@@ -52,7 +93,7 @@ export function CtaButton({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${base} ${variantClass[variant]} ${className}`}
+        className={`${base} ${variants[variant]} ${className}`}
       >
         {inner}
       </a>
@@ -60,7 +101,7 @@ export function CtaButton({
   }
 
   return (
-    <Link href={href} className={`${base} ${variantClass[variant]} ${className}`}>
+    <Link href={href} className={`${base} ${variants[variant]} ${className}`}>
       {inner}
     </Link>
   );
