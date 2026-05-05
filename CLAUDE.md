@@ -303,6 +303,84 @@ The custom domain `ferronnerie-mouansoise.fr` is configured in the Vercel dashbo
 
 ---
 
+## Responsive Breakpoints
+
+| Breakpoint | Tailwind prefix | Purpose |
+|---|---|---|
+| 0–639px | (none) | Mobile phones: 320px, 375px, 390px, 414px |
+| 640px+ | `sm:` | Large phones / small tablets: iPhone Pro Max, 768px tablet portrait |
+| 768px+ | `md:` | Tablet landscape / desktop transition |
+| 1024px+ | `lg:` | Full desktop nav appears, 2-column layouts |
+| 1280px+ | `xl:` | Large desktop, max-width container kicks in |
+
+**Mobile-first** — always write base styles for mobile, then add `sm:` / `md:` / `lg:` overrides.
+
+## Mobile-Specific Design Decisions
+
+- **ServicesList accordion** — `"use client"` with `useState`. Uses `<button>` rows with `aria-expanded`. Plus/Minus icons replace the invisible hover-only arrow. Works on all touch devices. Opening one item does not auto-close others.
+- **Hero min-h** — `min-h-[580px]` (not 720px) — fits iPhone SE (667px screen height)
+- **Hero trust strip** — desktop shows 4-stat grid; mobile shows compact 2-stat strip + scroll arrow
+- **Gallery scroll strip** — has `pl-[clamp(1.5rem,...)]` on mobile to match container inset; `scroll-pl-[...]` for correct snap alignment
+- **Footer grid** — `grid-cols-1` on mobile → `sm:grid-cols-2` → `md:grid-cols-12`. Email uses `break-all`.
+- **Map** — `aspect-[4/3]` on mobile → `aspect-[16/9]` on sm → `aspect-[16/6]` on md+
+- **Page heroes** — `min-h` reduced to 50-60vh on mobile (was 65-80vh). `pb-12` on mobile (was `pb-20`).
+- **Contact form submit** — `w-full sm:w-auto` — full width on mobile for easier tapping
+- **Phone links** — all secondary phone number links have `py-3 inline-flex items-center` for 44px touch target
+- **`--space-section`** — `clamp(4rem, 2.5rem + 6vw, 14rem)` — reduced minimum from 6rem to 4rem
+
+## Mobile Testing Checklist
+
+Run through this on every session that touches layout:
+
+**Navigation (320px):**
+- [ ] Logo visible and tappable (≥44px height)
+- [ ] Hamburger button ≥44×44px
+- [ ] Mobile menu opens and shows all 5 nav items
+- [ ] Each nav link ≥44px tall
+- [ ] Phone CTA pill visible in mobile menu
+- [ ] Menu closes on navigation
+
+**Hero (375px):**
+- [ ] h1 not cropped or overflowing
+- [ ] Both CTAs stacked and full-width
+- [ ] "Voir les réalisations" has adequate tap area
+- [ ] Trust strip shows 2 compact stats + scroll arrow
+- [ ] No vertical overflow of viewport
+
+**Services accordion (390px):**
+- [ ] Tap on service row → content expands
+- [ ] Tap again → collapses
+- [ ] Plus/Minus icon visible
+- [ ] Summary text readable, not truncated
+- [ ] "Découvrir ce service" link tappable (on /services page)
+
+**Gallery (375px):**
+- [ ] Home gallery scroll: first image NOT clipped to edge
+- [ ] Images snap correctly during scroll
+- [ ] Lightbox opens and shows arrows/close button
+- [ ] Filter tabs on /réalisations wrap to next line without overflow
+- [ ] No horizontal scrollbar on page
+
+**Contact form (390px):**
+- [ ] Submit button full width
+- [ ] Form fields don't extend beyond viewport
+- [ ] Map taller than 200px (4/3 aspect ratio)
+- [ ] Form and contact info stack vertically (not side by side)
+
+**Footer (320px):**
+- [ ] Single column layout
+- [ ] Email address wraps with `break-all`
+- [ ] Service area cities wrap naturally
+- [ ] No horizontal overflow
+
+**General:**
+- [ ] No horizontal scrollbar on any page at 320px
+- [ ] All text ≥16px (body) and ≥14px (labels)
+- [ ] All tap targets ≥44px
+- [ ] Smooth scroll reveal animations (not janky)
+
+---
+
 ## Rules for All Future Sessions
 
 1. **Never hardcode colors, spacing, or typography** — always use CSS tokens via `var(--color-*)`, `var(--space-*)`, `var(--text-*)`.
@@ -317,3 +395,6 @@ The custom domain `ferronnerie-mouansoise.fr` is configured in the Vercel dashbo
 10. **French language throughout** — zero English in UI copy, zero Lorem Ipsum.
 11. **No test suite** — verify correctness via `npm run build` (type check) and visual inspection.
 12. **`withLinks` on ServicesList** — use `withLinks` on the `/services` page, not on the home page preview.
+13. **ServicesList is `"use client"`** — it uses `useState` for the accordion. Do not convert back to a server component.
+14. **Mobile-first always** — write base styles for mobile, then `sm:` / `md:` / `lg:` modifiers. Never write desktop-only styles without a mobile baseline.
+15. **Touch targets ≥44px** — all interactive elements must have `min-h-[44px]` or equivalent padding. Use `py-3` as the minimum for links/buttons that need it.
