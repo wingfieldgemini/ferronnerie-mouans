@@ -42,7 +42,7 @@ export function Header() {
         <Link
           href="/"
           aria-label={`Accueil — ${siteConfig.name}`}
-          className="flex items-center gap-3 group min-h-[44px]"
+          className="flex items-center gap-3 group min-h-[44px] min-w-0 max-w-[calc(100%-3.5rem)] lg:max-w-none"
         >
           <div className="size-9 shrink-0 rounded-full overflow-hidden ring-1 ring-[color:var(--color-iron)]/20 bg-[color:var(--color-parchment)]/8 transition-all duration-500 group-hover:ring-[color:var(--color-iron)]/50">
             <Image
@@ -54,11 +54,11 @@ export function Header() {
               className="size-full object-contain"
             />
           </div>
-          <span className="hidden lg:flex flex-col leading-none gap-1">
-            <span className="font-[family-name:var(--font-display)] text-xl text-[color:var(--color-parchment)] tracking-[-0.02em] transition-colors duration-300 group-hover:text-[color:var(--color-iron)]">
+          <span className="flex flex-col leading-none gap-1 min-w-0">
+            <span className="font-[family-name:var(--font-display)] text-[15px] sm:text-lg lg:text-xl text-[color:var(--color-parchment)] tracking-[-0.02em] transition-colors duration-300 group-hover:text-[color:var(--color-iron)] truncate">
               {siteConfig.name}
             </span>
-            <span className="label text-[color:var(--color-mist)] text-[9px] tracking-[0.2em]">
+            <span className="label text-[color:var(--color-mist)] text-[8px] sm:text-[9px] tracking-[0.2em] hidden sm:block">
               Ferronnier d&apos;art
             </span>
           </span>

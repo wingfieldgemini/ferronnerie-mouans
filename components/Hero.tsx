@@ -37,38 +37,39 @@ export function Hero() {
       {/* Main content */}
       <div className="relative z-10 flex-1 flex flex-col justify-end container-page pb-6 md:pb-16">
         <div className="max-w-5xl">
-          <p className="eyebrow text-[color:var(--color-iron)] mb-6 md:mb-12">
-            Ferronnier d&apos;art · {siteConfig.contact.address.city}
+          <p className="eyebrow text-[color:var(--color-iron)] mb-5 md:mb-8">
+            {siteConfig.contact.address.city} · Côte d&apos;Azur
           </p>
 
           <h1
-            className="font-[family-name:var(--font-display)] leading-[0.88] tracking-[-0.04em] text-[color:var(--color-parchment)] text-balance"
-            style={{ fontSize: "var(--text-display)" }}
+            className="font-[family-name:var(--font-display)] leading-[0.92] tracking-[-0.03em] text-[color:var(--color-parchment)] text-balance"
+            style={{ fontSize: "var(--text-h1)" }}
           >
-            L&apos;art du fer
+            Ferronnerie
             <br />
+            Mouansoise
             <em
-              className="not-italic"
+              className="not-italic block mt-3 md:mt-4"
               style={{
                 fontStyle: "italic",
                 fontWeight: 300,
-                letterSpacing: "-0.05em",
-                display: "block",
+                letterSpacing: "-0.02em",
                 color: "var(--color-ember)",
-                lineHeight: 0.88,
+                fontSize: "var(--text-h3)",
+                lineHeight: 1,
               }}
             >
-              forgé.
+              Ferronnier d&apos;art.
             </em>
           </h1>
 
           <div className="mt-8 md:mt-14 flex flex-col sm:flex-row sm:items-end gap-6 sm:gap-16">
             <p className="text-[color:var(--color-mist)] text-sm leading-relaxed max-w-xs">
-              Portails, garde-corps et escaliers
+              L&apos;art du fer forgé — portails,
               <br />
-              pour les demeures d&apos;exception
+              garde-corps et escaliers pour les
               <br />
-              de la Côte d&apos;Azur.
+              demeures d&apos;exception de la Côte d&apos;Azur.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-5">
               <Link

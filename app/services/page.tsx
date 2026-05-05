@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Reveal } from "@/components/Reveal";
 import { ServicesList } from "@/components/ServicesList";
 import { CtaButton } from "@/components/CtaButton";
+import { PageHero } from "@/components/PageHero";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
@@ -14,37 +15,31 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── PAGE HERO ─── dark ─────────────────── */}
-      <section
-        className="relative text-[color:var(--color-parchment)] flex flex-col min-h-[60vh] md:min-h-[80vh]"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 100% 0%, rgba(184,150,46,0.04) 0%, transparent 70%), var(--color-ink)",
-        }}
+      <PageHero
+        imageSrc="/assets/hero/savoir-faire.jpg"
+        imageAlt=""
+        minHeight="min-h-[60vh] md:min-h-[80vh]"
       >
-        <div className="h-20 shrink-0" />
-        <div className="flex-1 flex flex-col justify-end container-page pb-12 md:pb-28">
-          <Reveal>
-            <p className="eyebrow text-[color:var(--color-ember)] mb-4">Savoir-faire</p>
-            <div className="w-16 h-px bg-[color:var(--color-iron)] mb-8" />
-            <h1
-              className="font-[family-name:var(--font-display)] leading-[0.88] tracking-tight text-balance max-w-4xl"
-              style={{ fontSize: "var(--text-h1)" }}
-            >
-              Six métiers,
-              <br />
-              <em className="font-[300] not-italic text-[color:var(--color-ember)]">
-                une exigence.
-              </em>
-            </h1>
-            <p className="mt-8 text-[color:var(--color-mist)] text-base md:text-lg leading-relaxed max-w-xl text-pretty">
-              De la pièce ornementale traditionnelle à la structure
-              contemporaine en acier brut, notre atelier maîtrise toute
-              la chaîne : conception, forge, finition, pose.
-            </p>
-          </Reveal>
-        </div>
-        <div className="border-t border-[color:var(--color-hairline-dark)]" />
-      </section>
+        <Reveal>
+          <p className="eyebrow text-[color:var(--color-ember)] mb-4">Savoir-faire</p>
+          <div className="w-16 h-px bg-[color:var(--color-iron)] mb-8" />
+          <h1
+            className="font-[family-name:var(--font-display)] leading-[0.88] tracking-tight text-balance max-w-4xl"
+            style={{ fontSize: "var(--text-h1)" }}
+          >
+            Six métiers,
+            <br />
+            <em className="font-[300] not-italic text-[color:var(--color-ember)]">
+              une exigence.
+            </em>
+          </h1>
+          <p className="mt-8 text-[color:var(--color-mist)] text-base md:text-lg leading-relaxed max-w-xl text-pretty">
+            De la pièce ornementale traditionnelle à la structure
+            contemporaine en acier brut, notre atelier maîtrise toute
+            la chaîne : conception, forge, finition, pose.
+          </p>
+        </Reveal>
+      </PageHero>
 
       {/* ── SERVICES LIST ─── light ─────────────── */}
       <section className="bg-parchment text-ink">

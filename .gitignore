@@ -43,3 +43,5 @@ next-env.d.ts
 
 # raw source assets (kept locally only)
 _source_assets/
+Photo/
+Logo/

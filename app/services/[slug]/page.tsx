@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { CtaButton } from "@/components/CtaButton";
+import { PageHero } from "@/components/PageHero";
 import { siteConfig } from "@/lib/siteConfig";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -43,41 +44,34 @@ export default async function ServiceDetailPage({ params }: Props) {
   return (
     <>
       {/* ── PAGE HERO ─── dark ─────────────────── */}
-      <section
-        className="relative text-[color:var(--color-parchment)] flex flex-col min-h-[55vh] md:min-h-[75vh]"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 100% 0%, rgba(201,168,76,0.05) 0%, transparent 70%), var(--color-ink)",
-        }}
+      <PageHero
+        imageSrc={serviceImages[0]?.src ?? "/assets/gallery/portail-09.webp"}
+        imageAlt=""
+        minHeight="min-h-[55vh] md:min-h-[75vh]"
       >
-        <div className="h-20 shrink-0" />
-        <div className="flex-1 flex flex-col justify-end container-page pb-12 md:pb-28">
-          {/* Breadcrumb */}
-          <Reveal>
-            <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 eyebrow text-[9px] text-[color:var(--color-mist)] mb-8">
-              <Link href="/services" className="hover:text-[color:var(--color-iron)] transition-colors">
-                Savoir-faire
-              </Link>
-              <span>/</span>
-              <span className="text-[color:var(--color-iron)]">{service.title}</span>
-            </nav>
-            <p className="eyebrow text-[color:var(--color-ember)] mb-4">
-              {service.category}
-            </p>
-            <div className="w-16 h-px bg-[color:var(--color-iron)] mb-8" />
-            <h1
-              className="font-[family-name:var(--font-display)] leading-[0.88] tracking-tight text-balance max-w-4xl"
-              style={{ fontSize: "var(--text-h1)" }}
-            >
-              {service.title}
-            </h1>
-            <p className="mt-8 text-[color:var(--color-mist)] text-base md:text-lg leading-relaxed max-w-xl text-pretty">
-              {service.summary}
-            </p>
-          </Reveal>
-        </div>
-        <div className="border-t border-[color:var(--color-hairline-dark)]" />
-      </section>
+        <Reveal>
+          <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 eyebrow text-[9px] text-[color:var(--color-mist)] mb-8">
+            <Link href="/services" className="hover:text-[color:var(--color-iron)] transition-colors">
+              Savoir-faire
+            </Link>
+            <span>/</span>
+            <span className="text-[color:var(--color-iron)]">{service.title}</span>
+          </nav>
+          <p className="eyebrow text-[color:var(--color-ember)] mb-4">
+            {service.category}
+          </p>
+          <div className="w-16 h-px bg-[color:var(--color-iron)] mb-8" />
+          <h1
+            className="font-[family-name:var(--font-display)] leading-[0.88] tracking-tight text-balance max-w-4xl"
+            style={{ fontSize: "var(--text-h1)" }}
+          >
+            {service.title}
+          </h1>
+          <p className="mt-8 text-[color:var(--color-mist)] text-base md:text-lg leading-relaxed max-w-xl text-pretty">
+            {service.summary}
+          </p>
+        </Reveal>
+      </PageHero>
 
       {/* ── DESCRIPTION ─── light ──────────────── */}
       <section className="bg-parchment text-ink">

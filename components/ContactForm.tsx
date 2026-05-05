@@ -33,10 +33,10 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} className="space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <Field name="name" label="Votre nom" required />
-        <Field name="email" type="email" label="Email" required />
-        <Field name="phone" type="tel" label="Téléphone" />
-        <Field name="project" label="Type de projet" placeholder="Portail, escalier…" />
+        <Field name="name" label="Votre nom" required autoComplete="name" />
+        <Field name="email" type="email" label="Email" required autoComplete="email" />
+        <Field name="phone" type="tel" label="Téléphone" autoComplete="tel" />
+        <Field name="project" label="Type de projet" placeholder="Portail, escalier…" autoComplete="off" />
       </div>
 
       <div>
@@ -51,6 +51,7 @@ export function ContactForm() {
           name="message"
           rows={6}
           required
+          autoComplete="off"
           className="w-full bg-transparent border-b border-[color:var(--color-hairline)] py-3 px-2 text-base text-[color:var(--color-ink)] focus:border-[color:var(--color-iron)] focus:outline-none focus:bg-[color:var(--color-cream)]/40 focus-visible:ring-1 focus-visible:ring-[color:var(--color-iron)] transition-all duration-300 resize-none placeholder:text-[color:var(--color-mist)] rounded-none"
           placeholder="Dimensions, style recherché, contraintes du lieu…"
         />
@@ -85,12 +86,14 @@ function Field({
   type = "text",
   required = false,
   placeholder,
+  autoComplete,
 }: {
   name: string;
   label: string;
   type?: string;
   required?: boolean;
   placeholder?: string;
+  autoComplete?: string;
 }) {
   return (
     <div>
@@ -109,6 +112,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
+        autoComplete={autoComplete}
         className="w-full bg-transparent border-b border-[color:var(--color-hairline)] py-3 px-2 text-base text-[color:var(--color-ink)] focus:border-[color:var(--color-iron)] focus:outline-none focus:bg-[color:var(--color-cream)]/40 focus-visible:ring-1 focus-visible:ring-[color:var(--color-iron)] transition-all duration-300 placeholder:text-[color:var(--color-mist)] rounded-none"
       />
     </div>

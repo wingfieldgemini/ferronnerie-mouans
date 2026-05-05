@@ -63,7 +63,7 @@ export function Footer() {
                 href={`tel:${siteConfig.contact.phone}`}
                 className="flex items-center gap-2 hover:text-[color:var(--color-parchment)] transition-colors py-1 min-h-[44px]"
               >
-                <Phone size={13} strokeWidth={1.5} shrink-0 />
+                <Phone size={13} strokeWidth={1.5} className="shrink-0" />
                 {siteConfig.contact.phoneDisplay}
               </a>
               <a
@@ -103,7 +103,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-[color:var(--color-mist)] hover:text-[color:var(--color-parchment)] transition-colors py-2 inline-block text-sm min-h-[44px] flex items-center"
+                    className="text-[color:var(--color-mist)] hover:text-[color:var(--color-parchment)] transition-colors py-2 text-sm min-h-[44px] flex items-center"
                   >
                     {item.label}
                   </Link>

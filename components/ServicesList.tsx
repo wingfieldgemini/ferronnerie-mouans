@@ -45,10 +45,10 @@ export function ServicesList({ services, tone = "dark", withLinks = false }: Pro
                 isOpen ? "opacity-100" : ""
               }`}
             >
-              <div className="flex items-baseline gap-4 md:gap-12 min-w-0">
+              <div className="flex items-baseline gap-5 md:gap-12 min-w-0">
                 <span
-                  className="font-[family-name:var(--font-display)] text-[color:var(--color-iron)] shrink-0 leading-none italic"
-                  style={{ fontSize: "var(--text-lead)" }}
+                  className="font-[family-name:var(--font-display)] text-[color:var(--color-iron)] shrink-0 leading-tight italic tracking-[-0.025em]"
+                  style={{ fontSize: "var(--text-h2)" }}
                 >
                   {n}
                 </span>

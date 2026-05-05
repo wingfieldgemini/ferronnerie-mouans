@@ -44,7 +44,7 @@ export default function HomePage() {
                 >
                   <p
                     className="font-[family-name:var(--font-display)] text-[color:var(--color-iron)] leading-none"
-                    style={{ fontSize: "var(--text-stat)", letterSpacing: "-0.04em" }}
+                    style={{ fontSize: "var(--text-h2)", letterSpacing: "-0.025em" }}
                   >
                     {s.n}
                   </p>
