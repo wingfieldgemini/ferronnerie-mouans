@@ -82,6 +82,7 @@ export default function AtelierPage() {
                   src="/assets/gallery/escalier-03.jpg"
                   alt="Escalier hélicoïdal acier, réalisation atelier Hachani, vue Méditerranée"
                   fill
+                  quality={90}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />

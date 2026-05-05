@@ -152,7 +152,7 @@ export default function HomePage() {
                   src={siteConfig.gallery[12].src}
                   alt={siteConfig.gallery[12].alt}
                   fill
-                  quality={80}
+                  quality={85}
                   sizes="50vw"
                   className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.03]"
                 />
@@ -230,7 +230,7 @@ export default function HomePage() {
                       src={g.src}
                       alt={g.alt}
                       fill
-                      quality={75}
+                      quality={80}
                       sizes="60vw"
                       className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.05]"
                     />
@@ -261,7 +261,7 @@ export default function HomePage() {
                       src={g.src}
                       alt={g.alt}
                       fill
-                      quality={75}
+                      quality={80}
                       sizes="16vw"
                       className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.05]"
                     />
