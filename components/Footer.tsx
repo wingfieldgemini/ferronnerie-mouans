@@ -24,7 +24,7 @@ export function Footer() {
           {/* Brand — full width at all sizes */}
           <div className="sm:col-span-2 md:col-span-4">
             <div className="flex items-center gap-3 mb-5">
-              <div className="size-10 shrink-0 rounded-full bg-[color:var(--color-parchment)]/8 p-1 flex items-center justify-center overflow-hidden">
+              <div className="size-10 shrink-0 rounded-full overflow-hidden ring-1 ring-[color:var(--color-iron)]/20 bg-[color:var(--color-parchment)]/8">
                 <Image
                   src="/assets/logo.png"
                   alt=""

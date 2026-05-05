@@ -12,9 +12,9 @@ export function Hero() {
         alt=""
         fill
         priority
-        quality={90}
+        quality={95}
         sizes="100vw"
-        className="object-cover opacity-40"
+        className="object-cover opacity-50"
       />
 
       {/* Layered gradients */}
