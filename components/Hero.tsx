@@ -8,7 +8,7 @@ export function Hero() {
     <section className="relative h-[100svh] min-h-[580px] flex flex-col overflow-hidden bg-[color:var(--color-ink)]">
       {/* Full-bleed background */}
       <Image
-        src="/assets/gallery/portail-08.jpg"
+        src="/assets/gallery/portail-09.webp"
         alt=""
         fill
         priority

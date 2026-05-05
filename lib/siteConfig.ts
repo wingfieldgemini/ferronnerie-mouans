@@ -211,7 +211,12 @@ export const siteConfig = {
   // ─── Gallery — real photos from the workshop ──────────────────────
   // Categories match service slugs exactly (case-sensitive)
   gallery: [
-    // Portails (7)
+    // Portails (8)
+    {
+      src: "/assets/gallery/portail-09.webp",
+      alt: "Portail double battant fer forgé ornemental, piliers blancs, bastide provençale",
+      category: "Portails",
+    },
     {
       src: "/assets/gallery/portail-07.jpg",
       alt: "Portail double battant fer forgé, bastide provençale",
