@@ -211,7 +211,7 @@ function LegalSection({
     <div>
       <h2
         className="font-[family-name:var(--font-display)] leading-tight tracking-tight text-[color:var(--color-ink)] mb-6"
-        style={{ fontSize: "clamp(1.5rem, 1rem + 1.5vw, 2.25rem)" }}
+        style={{ fontSize: "var(--text-h3)" }}
       >
         {title}
       </h2>

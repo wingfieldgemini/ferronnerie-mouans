@@ -89,7 +89,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                 <p className="eyebrow text-[color:var(--color-iron)] mb-8">Notre approche</p>
                 <p
                   className="font-[family-name:var(--font-display)] text-[color:var(--color-ink)] leading-snug tracking-tight text-pretty"
-                  style={{ fontSize: "clamp(1.375rem, 0.8rem + 2vw, 2rem)" }}
+                  style={{ fontSize: "var(--text-lead)" }}
                 >
                   {service.longDescription}
                 </p>
@@ -282,13 +282,13 @@ export default async function ServiceDetailPage({ params }: Props) {
                 <div className="bg-parchment p-8 md:p-10 h-full">
                   <p
                     className="font-[family-name:var(--font-display)] text-[color:var(--color-iron)] leading-none mb-6"
-                    style={{ fontSize: "clamp(2.5rem, 2rem + 2vw, 4rem)" }}
+                    style={{ fontSize: "var(--text-stat)" }}
                   >
                     {step.n}
                   </p>
                   <h3
                     className="font-[family-name:var(--font-display)] text-[color:var(--color-ink)] leading-tight mb-3"
-                    style={{ fontSize: "clamp(1.25rem, 0.9rem + 1.2vw, 1.75rem)" }}
+                    style={{ fontSize: "var(--text-h3)" }}
                   >
                     {step.t}
                   </h3>
@@ -329,7 +329,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                   <div className="flex items-start justify-between mb-6">
                     <span
                       className="font-[family-name:var(--font-display)] text-[color:var(--color-iron)] leading-none italic"
-                      style={{ fontSize: "2rem" }}
+                      style={{ fontSize: "var(--text-lead)" }}
                     >
                       {String(siteConfig.services.findIndex((sv) => sv.slug === s.slug) + 1).padStart(2, "0")}
                     </span>
@@ -341,7 +341,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                   </div>
                   <h3
                     className="font-[family-name:var(--font-display)] text-[color:var(--color-parchment)] leading-tight tracking-tight flex-1 group-hover:text-[color:var(--color-iron)] transition-colors duration-500"
-                    style={{ fontSize: "clamp(1.375rem, 0.9rem + 1.5vw, 2rem)" }}
+                    style={{ fontSize: "var(--text-h3)" }}
                   >
                     {s.title}
                   </h3>

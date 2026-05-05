@@ -20,8 +20,8 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={100}>
             <blockquote
-              className="font-[family-name:var(--font-display)] leading-[1.15] tracking-[-0.02em] text-balance text-[color:var(--color-ink)]"
-              style={{ fontSize: "clamp(1.5rem, 0.9rem + 1.8vw, 2.5rem)" }}
+              className="font-[family-name:var(--font-display)] leading-[1.1] tracking-[-0.02em] text-balance text-[color:var(--color-ink)]"
+              style={{ fontSize: "var(--text-h2)" }}
             >
               <span className="text-[color:var(--color-smoke)] select-none">&ldquo;&thinsp;</span>
               {siteConfig.longDescription}
@@ -44,7 +44,7 @@ export default function HomePage() {
                 >
                   <p
                     className="font-[family-name:var(--font-display)] text-[color:var(--color-iron)] leading-none"
-                    style={{ fontSize: "clamp(3.5rem, 1.5rem + 4.5vw, 6.5rem)", letterSpacing: "-0.04em" }}
+                    style={{ fontSize: "var(--text-stat)", letterSpacing: "-0.04em" }}
                   >
                     {s.n}
                   </p>
@@ -64,7 +64,7 @@ export default function HomePage() {
               <div className="lg:col-span-7">
                 <p className="eyebrow text-[color:var(--color-ember)] mb-8">Savoir-faire</p>
                 <h2
-                  className="font-[family-name:var(--font-display)] leading-[0.93] tracking-tight text-balance"
+                  className="font-[family-name:var(--font-display)] leading-[0.92] tracking-tight text-balance"
                   style={{ fontSize: "var(--text-h2)" }}
                 >
                   Six métiers,
@@ -367,7 +367,7 @@ export default function HomePage() {
               <blockquote className="border-l-[3px] border-[color:var(--color-iron)] pl-8">
                 <p
                   className="font-[family-name:var(--font-display)] italic leading-[1.1] tracking-tight text-balance text-[color:var(--color-ink)]"
-                  style={{ fontSize: "clamp(1.5rem, 0.8rem + 3vw, 2.75rem)" }}
+                  style={{ fontSize: "var(--text-h3)" }}
                 >
                   &ldquo;De la prise de cotes à la pose, votre interlocuteur ne change pas.&rdquo;
                 </p>

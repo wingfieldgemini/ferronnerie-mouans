@@ -48,7 +48,7 @@ export function ServicesList({ services, tone = "dark", withLinks = false }: Pro
               <div className="flex items-baseline gap-4 md:gap-12 min-w-0">
                 <span
                   className="font-[family-name:var(--font-display)] text-[color:var(--color-iron)] shrink-0 leading-none italic"
-                  style={{ fontSize: "clamp(1rem, 0.75rem + 0.75vw, 1.375rem)" }}
+                  style={{ fontSize: "var(--text-lead)" }}
                 >
                   {n}
                 </span>
@@ -58,7 +58,7 @@ export function ServicesList({ services, tone = "dark", withLinks = false }: Pro
                       ? "text-[color:var(--color-iron)]"
                       : `${titleColor} group-hover:text-[color:var(--color-iron)]`
                   }`}
-                  style={{ fontSize: "clamp(1.5rem, 0.75rem + 3.5vw, 4rem)" }}
+                  style={{ fontSize: "var(--text-h2)" }}
                 >
                   {service.title}
                 </span>

@@ -97,13 +97,13 @@ export default function ServicesPage() {
                 <div className="bg-[color:var(--color-ink)] p-8 md:p-12 h-full">
                   <p
                     className="font-[family-name:var(--font-display)] text-[color:var(--color-iron)] leading-none mb-8"
-                    style={{ fontSize: "clamp(3rem, 2rem + 3vw, 5rem)" }}
+                    style={{ fontSize: "var(--text-stat)" }}
                   >
                     {step.n}
                   </p>
                   <h3
                     className="font-[family-name:var(--font-display)] text-[color:var(--color-parchment)] leading-tight mb-4"
-                    style={{ fontSize: "clamp(1.4rem, 1rem + 1.5vw, 2rem)" }}
+                    style={{ fontSize: "var(--text-h3)" }}
                   >
                     {step.t}
                   </h3>

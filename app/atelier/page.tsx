@@ -110,13 +110,13 @@ export default function AtelierPage() {
                 <article className="bg-[color:var(--color-ink)] p-10 md:p-16 h-full">
                   <p
                     className="font-[family-name:var(--font-display)] text-[color:var(--color-iron)] leading-none mb-8"
-                    style={{ fontSize: "clamp(3rem, 2rem + 3vw, 5rem)" }}
+                    style={{ fontSize: "var(--text-stat)" }}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <h3
                     className="font-[family-name:var(--font-display)] text-[color:var(--color-parchment)] leading-tight mb-5"
-                    style={{ fontSize: "clamp(1.5rem, 1rem + 2vw, 2.5rem)" }}
+                    style={{ fontSize: "var(--text-h3)" }}
                   >
                     {v.title}
                   </h3>

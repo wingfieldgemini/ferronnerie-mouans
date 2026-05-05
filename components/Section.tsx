@@ -54,7 +54,7 @@ export function Section({
                 </p>
               )}
               {title && (
-                <h2 className="text-balance text-[length:var(--text-h2)] leading-[0.95] tracking-[-0.025em]">
+                <h2 className="text-balance text-[length:var(--text-h2)] leading-[0.92] tracking-[-0.025em]">
                   {title}
                 </h2>
               )}

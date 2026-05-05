@@ -17,11 +17,19 @@
   --font-display: var(--font-display), "Cormorant Garamond", serif;
   --font-sans:    var(--font-sans), "DM Sans", ui-sans-serif, system-ui, sans-serif;
 
-  /* Editorial scale — broader jumps create real hierarchy */
-  --text-display: clamp(4rem, 1rem + 8vw, 9rem);
-  --text-h1:      clamp(2.75rem, 1rem + 5vw, 6.5rem);
-  --text-h2:      clamp(2.125rem, 0.875rem + 3.5vw, 4.5rem);
-  --text-h3:      clamp(1.5rem, 0.875rem + 1.75vw, 2.5rem);
+  /* ─── Type scale — 6 levels, nothing outside these ──── */
+  /* display: hero headline only                          */
+  /* h1:      inner-page heroes                          */
+  /* h2:      section headings                           */
+  /* h3:      card/step headings                         */
+  /* lead:    prominent intro paragraphs                 */
+  /* stat:    decorative numbers (01, 100%, 48h)         */
+  --text-display: clamp(3.5rem, 1rem + 8vw, 8rem);
+  --text-h1:      clamp(2.25rem, 1rem + 4vw, 5rem);
+  --text-h2:      clamp(1.75rem, 1rem + 2.25vw, 3.25rem);
+  --text-h3:      clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  --text-lead:    clamp(1.0625rem, 1rem + 0.25vw, 1.25rem);
+  --text-stat:    clamp(2.5rem, 1rem + 5vw, 5.5rem);
 
   /* ─── Spacing tokens ──────────────────────────── */
   --space-xs:   clamp(0.5rem,  0.25rem + 0.5vw, 0.75rem);
@@ -64,7 +72,7 @@
     font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: -0.025em;
-    line-height: 0.95;
+    line-height: 0.92;
     color: inherit;
     margin: 0;
   }

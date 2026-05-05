@@ -42,22 +42,20 @@ export function Hero() {
           </p>
 
           <h1
-            className="font-[family-name:var(--font-display)] leading-[0.88] tracking-[-0.04em] text-[color:var(--color-parchment)]"
-            style={{ fontSize: "clamp(3.5rem, 1.5rem + 7.5vw, 8.5rem)" }}
+            className="font-[family-name:var(--font-display)] leading-[0.88] tracking-[-0.04em] text-[color:var(--color-parchment)] text-balance"
+            style={{ fontSize: "var(--text-display)" }}
           >
-            L&apos;art
-            <br />
-            du fer
+            L&apos;art du fer
             <br />
             <em
+              className="not-italic"
               style={{
                 fontStyle: "italic",
                 fontWeight: 300,
-                fontSize: "clamp(4rem, 1.5rem + 8.5vw, 9.75rem)",
                 letterSpacing: "-0.05em",
-                lineHeight: 0.82,
                 display: "block",
                 color: "var(--color-ember)",
+                lineHeight: 0.88,
               }}
             >
               forgé.
@@ -105,7 +103,7 @@ export function Hero() {
               <p className="label text-[color:var(--color-mist)] text-[9px] tracking-[0.22em]">{m.k}</p>
               <p
                 className="font-[family-name:var(--font-display)] text-[color:var(--color-parchment)] leading-none tracking-tight"
-                style={{ fontSize: "clamp(1.1rem, 0.8rem + 0.8vw, 1.5rem)" }}
+                style={{ fontSize: "var(--text-lead)" }}
               >
                 {m.v}
               </p>
