@@ -72,7 +72,7 @@ export function Header() {
         <div className="hidden md:flex items-center gap-5">
           <a
             href={`tel:${siteConfig.contact.phone}`}
-            className="eyebrow text-[color:var(--color-mist)] hover:text-[color:var(--color-parchment)] transition-colors flex items-center gap-2"
+            className="eyebrow text-[color:var(--color-parchment)]/70 hover:text-[color:var(--color-parchment)] transition-colors flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-iron)]"
           >
             <Phone size={13} strokeWidth={2} />
             {siteConfig.contact.phoneDisplay}

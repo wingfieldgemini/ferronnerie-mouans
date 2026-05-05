@@ -49,7 +49,7 @@ export default function RealisationsPage() {
 
       {/* ── GALLERY ─── dark (seamless continuation) */}
       <section className="bg-ink">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page py-[var(--space-section)]">
           <Reveal>
             <GalleryGrid items={siteConfig.gallery} />
           </Reveal>

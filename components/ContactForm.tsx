@@ -51,7 +51,7 @@ export function ContactForm() {
           name="message"
           rows={6}
           required
-          className="w-full bg-transparent border-b border-[color:var(--color-hairline)] py-3 px-2 text-base text-[color:var(--color-ink)] focus:border-[color:var(--color-iron)] focus:outline-none focus:bg-[color:var(--color-cream)]/40 transition-all duration-300 resize-none placeholder:text-[color:var(--color-mist)] rounded-none"
+          className="w-full bg-transparent border-b border-[color:var(--color-hairline)] py-3 px-2 text-base text-[color:var(--color-ink)] focus:border-[color:var(--color-iron)] focus:outline-none focus:bg-[color:var(--color-cream)]/40 focus-visible:ring-1 focus-visible:ring-[color:var(--color-iron)] transition-all duration-300 resize-none placeholder:text-[color:var(--color-mist)] rounded-none"
           placeholder="Dimensions, style recherché, contraintes du lieu…"
         />
       </div>
@@ -71,7 +71,7 @@ export function ContactForm() {
         </button>
         {status === "ok" && (
           <p className="mt-4 text-sm text-[color:var(--color-iron)]">
-            Votre client mail s&apos;est ouvert. À très vite.
+            Votre client de messagerie s&apos;est ouvert. À très vite.
           </p>
         )}
       </div>
@@ -109,7 +109,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="w-full bg-transparent border-b border-[color:var(--color-hairline)] py-3 px-2 text-base text-[color:var(--color-ink)] focus:border-[color:var(--color-iron)] focus:outline-none focus:bg-[color:var(--color-cream)]/40 transition-all duration-300 placeholder:text-[color:var(--color-mist)] rounded-none"
+        className="w-full bg-transparent border-b border-[color:var(--color-hairline)] py-3 px-2 text-base text-[color:var(--color-ink)] focus:border-[color:var(--color-iron)] focus:outline-none focus:bg-[color:var(--color-cream)]/40 focus-visible:ring-1 focus-visible:ring-[color:var(--color-iron)] transition-all duration-300 placeholder:text-[color:var(--color-mist)] rounded-none"
       />
     </div>
   );

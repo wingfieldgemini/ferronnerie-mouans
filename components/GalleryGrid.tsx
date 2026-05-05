@@ -77,10 +77,10 @@ export function GalleryGrid({ items, showFilters = true }: Props) {
                 type="button"
                 onClick={() => setActiveFilter(cat)}
                 aria-pressed={isActive}
-                className={`label text-[10px] px-4 py-2.5 transition-all duration-300 ease-[var(--ease-out-expo)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-iron)] ${
+                className={`label text-[10px] px-5 py-3.5 transition-all duration-300 ease-[var(--ease-out-expo)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-iron)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-ink)] ${
                   isActive
                     ? "bg-[color:var(--color-iron)] text-[color:var(--color-ink)]"
-                    : "text-[color:var(--color-mist)] ring-1 ring-[color:var(--color-hairline-dark)] hover:text-[color:var(--color-parchment)] hover:ring-[color:var(--color-iron)]"
+                    : "text-[color:var(--color-parchment)]/75 ring-1 ring-[color:var(--color-hairline-dark)] hover:text-[color:var(--color-parchment)] hover:ring-[color:var(--color-iron)]"
                 }`}
               >
                 {cat}
@@ -88,7 +88,7 @@ export function GalleryGrid({ items, showFilters = true }: Props) {
                   className={`ml-2 text-[9px] ${
                     isActive
                       ? "text-[color:var(--color-ink)]/60"
-                      : "text-[color:var(--color-mist)]/60"
+                      : "text-[color:var(--color-parchment)]/40"
                   }`}
                 >
                   {count}
@@ -162,7 +162,7 @@ export function GalleryGrid({ items, showFilters = true }: Props) {
             type="button"
             onClick={close}
             aria-label="Fermer"
-            className="absolute top-5 right-5 md:top-8 md:right-8 text-[color:var(--color-parchment)] p-3 hover:text-[color:var(--color-iron)] transition-colors"
+            className="absolute top-5 right-5 md:top-8 md:right-8 text-[color:var(--color-parchment)] p-3 hover:text-[color:var(--color-iron)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-iron)]"
           >
             <X size={24} strokeWidth={1.5} />
           </button>
@@ -173,7 +173,7 @@ export function GalleryGrid({ items, showFilters = true }: Props) {
               prev();
             }}
             aria-label="Précédent"
-            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-[color:var(--color-parchment)] p-3 hover:text-[color:var(--color-iron)] transition-colors"
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-[color:var(--color-parchment)] p-3 hover:text-[color:var(--color-iron)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-iron)]"
           >
             <ChevronLeft size={32} strokeWidth={1.5} />
           </button>
@@ -184,7 +184,7 @@ export function GalleryGrid({ items, showFilters = true }: Props) {
               next();
             }}
             aria-label="Suivant"
-            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-[color:var(--color-parchment)] p-3 hover:text-[color:var(--color-iron)] transition-colors"
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-[color:var(--color-parchment)] p-3 hover:text-[color:var(--color-iron)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-iron)]"
           >
             <ChevronRight size={32} strokeWidth={1.5} />
           </button>

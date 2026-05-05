@@ -183,7 +183,7 @@ export default function MentionsLegalesPage() {
 
             <div className="pt-4 border-t border-[color:var(--color-hairline)]">
               <p className="text-sm text-[color:var(--color-mist)]">
-                Dernière mise à jour : mai 2025
+                Dernière mise à jour : mai 2026
               </p>
               <p className="mt-2 text-sm text-[color:var(--color-smoke)]">
                 Pour toute question :{" "}

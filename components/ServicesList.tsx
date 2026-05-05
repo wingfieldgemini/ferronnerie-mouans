@@ -51,8 +51,8 @@ export function ServicesList({ services, tone = "dark", withLinks = false }: Pro
               />
             </div>
 
-            {/* Expandable detail — CSS-only accordion */}
-            <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-700 ease-[var(--ease-out-expo)] overflow-hidden">
+            {/* Expandable detail — hover + focus-within accordion */}
+            <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr] transition-all duration-700 ease-[var(--ease-out-expo)] overflow-hidden">
               <div className="overflow-hidden">
                 <div
                   className={`pb-10 md:pb-14 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20 ${bodyColor}`}

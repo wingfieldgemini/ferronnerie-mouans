@@ -30,7 +30,7 @@ export default function ContactPage() {
             <p className="eyebrow text-[color:var(--color-ember)] mb-4">Contact</p>
             <div className="w-16 h-px bg-[color:var(--color-iron)] mb-8" />
             <h1
-              className="font-[family-name:var(--font-display)] leading-[0.88] tracking-tight"
+              className="font-[family-name:var(--font-display)] leading-[0.88] tracking-tight text-balance"
               style={{ fontSize: "var(--text-h1)" }}
             >
               Parlons de
@@ -112,7 +112,7 @@ export default function ContactPage() {
 
       {/* ── MAP ─── cream ───────────────────────── */}
       <section className="bg-cream border-t border-[color:var(--color-hairline)]">
-        <div className="container-page py-12 md:py-16">
+        <div className="container-page py-16 md:py-20">
           <div className="aspect-[16/6] w-full overflow-hidden">
             <iframe
               title={`Carte — ${siteConfig.legalName}`}

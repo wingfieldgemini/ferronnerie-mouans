@@ -20,8 +20,8 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={100}>
             <blockquote
-              className="font-[family-name:var(--font-display)] leading-[1.0] tracking-[-0.03em] text-balance text-[color:var(--color-ink)]"
-              style={{ fontSize: "clamp(2.25rem, 0.75rem + 5.5vw, 6rem)" }}
+              className="font-[family-name:var(--font-display)] leading-[1.15] tracking-[-0.02em] text-balance text-[color:var(--color-ink)]"
+              style={{ fontSize: "clamp(1.5rem, 0.9rem + 1.8vw, 2.5rem)" }}
             >
               <span className="text-[color:var(--color-smoke)] select-none">&ldquo;&thinsp;</span>
               {siteConfig.longDescription}
