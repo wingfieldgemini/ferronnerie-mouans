@@ -64,7 +64,7 @@ export default function HomePage() {
               <div className="lg:col-span-7">
                 <p className="eyebrow text-[color:var(--color-ember)] mb-8">Savoir-faire</p>
                 <h2
-                  className="font-[family-name:var(--font-display)] leading-[0.92] tracking-tight text-balance"
+                  className="font-[family-name:var(--font-display)] leading-[1.1] tracking-[-0.02em] text-balance"
                   style={{ fontSize: "var(--text-h2)" }}
                 >
                   Six métiers,
