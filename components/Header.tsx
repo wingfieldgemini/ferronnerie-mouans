@@ -54,8 +54,8 @@ export function Header() {
               className="size-full object-contain"
             />
           </div>
-          <span className="hidden sm:flex flex-col leading-none gap-1">
-            <span className="font-[family-name:var(--font-display)] text-[1.2rem] text-[color:var(--color-parchment)] tracking-[-0.02em] transition-colors duration-300 group-hover:text-[color:var(--color-iron)]">
+          <span className="hidden lg:flex flex-col leading-none gap-1">
+            <span className="font-[family-name:var(--font-display)] text-xl text-[color:var(--color-parchment)] tracking-[-0.02em] transition-colors duration-300 group-hover:text-[color:var(--color-iron)]">
               {siteConfig.name}
             </span>
             <span className="label text-[color:var(--color-mist)] text-[9px] tracking-[0.2em]">

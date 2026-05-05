@@ -21,15 +21,19 @@ export function ServiceCard({ service, index, tone = "dark" }: Props) {
       }`}
     >
       <div className="flex items-baseline justify-between mb-8">
-        <span className="font-[family-name:var(--font-display)] text-5xl text-[color:var(--color-iron)] leading-none">
+        <span
+          className="font-[family-name:var(--font-display)] text-[color:var(--color-iron)] leading-none"
+          style={{ fontSize: "var(--text-stat)" }}
+        >
           {number}
         </span>
       </div>
 
       <h3
-        className={`font-[family-name:var(--font-display)] text-3xl md:text-4xl leading-tight tracking-tight mb-4 ${
+        className={`font-[family-name:var(--font-display)] leading-[0.92] tracking-tight mb-4 ${
           isDark ? "text-[color:var(--color-parchment)]" : "text-[color:var(--color-ink)]"
         }`}
+        style={{ fontSize: "var(--text-h3)" }}
       >
         {service.title}
       </h3>

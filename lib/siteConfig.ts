@@ -305,17 +305,17 @@ export const siteConfig = {
       alt: "Grille de fenêtre cintrée ornementée en fer forgé",
       category: "Clôtures",
     },
-    // Verrières (1)
+    // Portails supplémentaire — panoramique propriété
     {
-      src: "/assets/gallery/verriere-01.jpg",
-      alt: "Pergola acier noire en cours de pose sur villa provençale",
-      category: "Verrières",
+      src: "/assets/gallery/portail-08.jpg",
+      alt: "Entrée de propriété — portail ornemental et clôtures sur murets de pierre, vue panoramique",
+      category: "Portails",
     },
-    // Structures (1)
+    // Verrières / Structures
     {
       src: "/assets/gallery/structure-01.jpg",
-      alt: "Terrasse couverte pergola acier et garde-corps ornementé, vue collines",
-      category: "Structures",
+      alt: "Terrasse couverte pergola acier et garde-corps ornementé, vue collines provençales",
+      category: "Verrières",
     },
   ],
 
