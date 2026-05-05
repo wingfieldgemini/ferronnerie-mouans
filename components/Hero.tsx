@@ -8,7 +8,7 @@ export function Hero() {
     <section className="relative h-[100svh] min-h-[580px] flex flex-col overflow-hidden bg-[color:var(--color-ink)]">
       {/* Full-bleed background */}
       <Image
-        src="/assets/gallery/gate-ornate-traditional.png"
+        src="/assets/gallery/portail-07.jpg"
         alt=""
         fill
         priority

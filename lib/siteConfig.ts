@@ -208,143 +208,113 @@ export const siteConfig = {
     },
   ],
 
-  // ─── Gallery ───────────────────────────────────────────────────────
-  // Categories: "Portails" | "Garde-corps" | "Escaliers" | "Clôtures" | "Verrières" | "Structures"
+  // ─── Gallery — real photos from the workshop ──────────────────────
+  // Categories match service slugs exactly (case-sensitive)
   gallery: [
-    // Portails (5)
+    // Portails (7)
     {
-      src: "/assets/gallery/gate-ornate-traditional.png",
-      alt: "Portail double battant en fer forgé ornementé, Mouans-Sartoux",
+      src: "/assets/gallery/portail-07.jpg",
+      alt: "Portail double battant fer forgé, bastide provençale",
       category: "Portails",
     },
     {
-      src: "/assets/gallery/work-01.jpg",
-      alt: "Portail coulissant acier laqué noir mat, villa Mougins",
+      src: "/assets/gallery/portail-01.jpg",
+      alt: "Portail coulissant acier noir contemporain, motif géométrique et cercle",
       category: "Portails",
     },
     {
-      src: "/assets/gallery/work-02.jpg",
-      alt: "Portail battant fer forgé motifs volutes, propriété Cannes",
+      src: "/assets/gallery/portail-02.jpg",
+      alt: "Grand portail double battant fer forgé ornemental traditionnel",
       category: "Portails",
     },
     {
-      src: "/assets/gallery/work-03.jpg",
-      alt: "Portail contemporain acier thermolaqué, Valbonne",
+      src: "/assets/gallery/portail-03.jpg",
+      alt: "Propriété avec portail battant ornemental et clôtures sur murets de pierre",
       category: "Portails",
     },
     {
-      src: "/assets/gallery/work-04.jpg",
-      alt: "Portail et portillon assortis fer forgé, Grasse",
+      src: "/assets/gallery/portail-04.jpg",
+      alt: "Portail battant fer forgé ornementé, villa Côte d'Azur",
       category: "Portails",
     },
-    // Garde-corps (6)
     {
-      src: "/assets/gallery/railing-terrace-view.png",
-      alt: "Garde-corps de terrasse panoramique, acier et câble inox",
+      src: "/assets/gallery/portail-05.jpg",
+      alt: "Portail ornemental en cours de fabrication dans l'atelier",
+      category: "Portails",
+    },
+    {
+      src: "/assets/gallery/portail-06.jpg",
+      alt: "Portail coulissant acier plein, propriété contemporaine",
+      category: "Portails",
+    },
+    // Garde-corps (5)
+    {
+      src: "/assets/gallery/garde-corps-01.jpg",
+      alt: "Garde-corps de balcon ornementé motifs floraux, vue sur Cannes",
       category: "Garde-corps",
     },
     {
-      src: "/assets/gallery/work-05.png",
-      alt: "Rampe escalier intérieur acier noir, limon central",
+      src: "/assets/gallery/garde-corps-02.jpg",
+      alt: "Rampe d'escalier intérieure fer forgé, volutes traditionnelles",
       category: "Garde-corps",
     },
     {
-      src: "/assets/gallery/work-06.png",
-      alt: "Garde-corps balcon laqué, appartement Antibes",
+      src: "/assets/gallery/garde-corps-03.jpg",
+      alt: "Rampe escalier acier poli, motifs en arabesques",
       category: "Garde-corps",
     },
     {
-      src: "/assets/gallery/work-07.png",
-      alt: "Garde-corps mezzanine câbles inox tendus, Cannes",
+      src: "/assets/gallery/garde-corps-04.jpg",
+      alt: "Rampe extérieure acier poli, escalier de jardin provençal",
       category: "Garde-corps",
     },
     {
-      src: "/assets/gallery/work-08.png",
-      alt: "Rampe extérieure fer forgé, finition Côte d'Azur",
+      src: "/assets/gallery/garde-corps-05.jpg",
+      alt: "Balustrade acier ornemental courbe, escalier intérieur",
       category: "Garde-corps",
     },
+    // Escaliers (3)
     {
-      src: "/assets/gallery/work-09.png",
-      alt: "Garde-corps piscine acier et verre trempé, Mouans-Sartoux",
-      category: "Garde-corps",
-    },
-    // Escaliers (5)
-    {
-      src: "/assets/gallery/staircase-exterior-modern.png",
-      alt: "Escalier extérieur acier noir, structure auto-portante",
+      src: "/assets/gallery/escalier-03.jpg",
+      alt: "Escalier hélicoïdal acier extérieur, vue sur la Méditerranée",
       category: "Escaliers",
     },
     {
-      src: "/assets/gallery/work-10.png",
-      alt: "Escalier droit acier brut, marches bois massif",
+      src: "/assets/gallery/escalier-01.jpg",
+      alt: "Escalier extérieur droit acier noir, marches antidérapantes",
       category: "Escaliers",
     },
     {
-      src: "/assets/gallery/work-11.png",
-      alt: "Escalier hélicoïdal limon central, villa contemporaine Cannes",
+      src: "/assets/gallery/escalier-02.jpg",
+      alt: "Escalier intérieur marbre avec rampe fer forgé ornementée",
       category: "Escaliers",
     },
+    // Clôtures (3)
     {
-      src: "/assets/gallery/work-12.png",
-      alt: "Escalier suspendu acier corten, patio extérieur",
-      category: "Escaliers",
-    },
-    {
-      src: "/assets/gallery/work-13.png",
-      alt: "Escalier quart-tournant acier et pierre naturelle",
-      category: "Escaliers",
-    },
-    // Clôtures (4)
-    {
-      src: "/assets/gallery/work-14.jpg",
-      alt: "Clôture fer forgé motifs contemporains, Le Cannet",
+      src: "/assets/gallery/cloture-03.jpg",
+      alt: "Portillon et clôture acier découpé laser, motif végétal contemporain",
       category: "Clôtures",
     },
     {
-      src: "/assets/gallery/work-15.jpg",
-      alt: "Grille de clôture sur muret, propriété Vallauris",
+      src: "/assets/gallery/cloture-01.jpg",
+      alt: "Clôture fer forgé à fers de lance, réalisation Cannes",
       category: "Clôtures",
     },
     {
-      src: "/assets/gallery/work-16.jpg",
-      alt: "Clôture acier corten et bois, jardin méditerranéen",
+      src: "/assets/gallery/cloture-02.jpg",
+      alt: "Grille de fenêtre cintrée ornementée en fer forgé",
       category: "Clôtures",
     },
+    // Verrières (1)
     {
-      src: "/assets/gallery/work-17.jpg",
-      alt: "Portillon et clôture assortis, villa Grasse",
-      category: "Clôtures",
-    },
-    // Verrières (4)
-    {
-      src: "/assets/gallery/work-18.jpg",
-      alt: "Verrière atelier style industriel, cuisine Antibes",
+      src: "/assets/gallery/verriere-01.jpg",
+      alt: "Pergola acier noire en cours de pose sur villa provençale",
       category: "Verrières",
     },
+    // Structures (1)
     {
-      src: "/assets/gallery/work-19.jpg",
-      alt: "Marquise d'entrée profilés acier fin, Mougins",
-      category: "Verrières",
-    },
-    {
-      src: "/assets/gallery/work-20.jpg",
-      alt: "Pergola bioclimatique acier thermolaqué, terrasse",
-      category: "Verrières",
-    },
-    {
-      src: "/assets/gallery/work-21.jpg",
-      alt: "Verrière toit atelier, séjour contemporain",
-      category: "Verrières",
-    },
-    // Structures (2)
-    {
-      src: "/assets/gallery/work-22.jpg",
-      alt: "Mezzanine structure acier, passerelle intérieure",
-      category: "Structures",
-    },
-    {
-      src: "/assets/gallery/work-23.jpg",
-      alt: "Charpente métallique pergola, terrasse couverte",
+      src: "/assets/gallery/structure-01.jpg",
+      alt: "Terrasse couverte pergola acier et garde-corps ornementé, vue collines",
       category: "Structures",
     },
   ],

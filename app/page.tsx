@@ -130,8 +130,8 @@ export default function HomePage() {
               </div>
               <div className="col-span-6 md:col-span-4 aspect-[3/4] relative overflow-hidden group bg-[color:var(--color-hairline-dark)]">
                 <Image
-                  src={siteConfig.gallery[5].src}
-                  alt={siteConfig.gallery[5].alt}
+                  src={siteConfig.gallery[7].src}
+                  alt={siteConfig.gallery[7].alt}
                   fill
                   quality={85}
                   sizes="(max-width: 768px) 50vw, 33vw"
@@ -143,14 +143,14 @@ export default function HomePage() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-[400ms] ease-[var(--ease-out-expo)]">
                   <span className="eyebrow text-[color:var(--color-ember)] text-[9px]">
-                    {siteConfig.gallery[5].category}
+                    {siteConfig.gallery[7].category}
                   </span>
                 </div>
               </div>
               <div className="col-span-6 md:hidden aspect-[3/4] relative overflow-hidden group bg-[color:var(--color-hairline-dark)]">
                 <Image
-                  src={siteConfig.gallery[11].src}
-                  alt={siteConfig.gallery[11].alt}
+                  src={siteConfig.gallery[12].src}
+                  alt={siteConfig.gallery[12].alt}
                   fill
                   quality={80}
                   sizes="50vw"
@@ -162,7 +162,7 @@ export default function HomePage() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-[400ms] ease-[var(--ease-out-expo)]">
                   <span className="eyebrow text-[color:var(--color-ember)] text-[9px]">
-                    {siteConfig.gallery[11].category}
+                    {siteConfig.gallery[12].category}
                   </span>
                 </div>
               </div>
@@ -174,8 +174,8 @@ export default function HomePage() {
             <div className="-mx-[clamp(1.5rem,1rem+3.5vw,4rem)] hidden md:grid grid-cols-12 gap-1.5 mb-1.5">
               <div className="col-span-4 aspect-[4/3] relative overflow-hidden group bg-[color:var(--color-hairline-dark)]">
                 <Image
-                  src={siteConfig.gallery[11].src}
-                  alt={siteConfig.gallery[11].alt}
+                  src={siteConfig.gallery[12].src}
+                  alt={siteConfig.gallery[12].alt}
                   fill
                   quality={85}
                   sizes="33vw"
@@ -187,14 +187,14 @@ export default function HomePage() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-[400ms] ease-[var(--ease-out-expo)]">
                   <span className="eyebrow text-[color:var(--color-ember)] text-[9px]">
-                    {siteConfig.gallery[11].category}
+                    {siteConfig.gallery[12].category}
                   </span>
                 </div>
               </div>
               <div className="col-span-8 aspect-[4/3] relative overflow-hidden group bg-[color:var(--color-hairline-dark)]">
                 <Image
-                  src={siteConfig.gallery[16].src}
-                  alt={siteConfig.gallery[16].alt}
+                  src={siteConfig.gallery[8].src}
+                  alt={siteConfig.gallery[8].alt}
                   fill
                   quality={85}
                   sizes="66vw"
@@ -206,7 +206,7 @@ export default function HomePage() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-[400ms] ease-[var(--ease-out-expo)]">
                   <span className="eyebrow text-[color:var(--color-ember)] text-[9px]">
-                    {siteConfig.gallery[16].category}
+                    {siteConfig.gallery[8].category}
                   </span>
                 </div>
               </div>
@@ -219,9 +219,9 @@ export default function HomePage() {
               className="-mx-[clamp(1.5rem,1rem+3.5vw,4rem)]"
               aria-label="Galerie de réalisations"
             >
-              {/* Mobile: horizontal scroll — pl- adds back the padding removed by -mx- parent */}
+              {/* Mobile: horizontal scroll — curated mix of categories */}
               <div className="flex md:hidden gap-1 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pl-[clamp(1.5rem,1rem+3.5vw,4rem)] scroll-pl-[clamp(1.5rem,1rem+3.5vw,4rem)]">
-                {siteConfig.gallery.slice(1, 7).map((g) => (
+                {[1, 9, 13, 15, 19, 4].map((idx) => siteConfig.gallery[idx]).filter(Boolean).map((g) => (
                   <div
                     key={g.src}
                     className="flex-none w-[75vw] aspect-square relative overflow-hidden group bg-[color:var(--color-hairline-dark)] snap-start"
@@ -250,9 +250,9 @@ export default function HomePage() {
                 Faire défiler →
               </p>
 
-              {/* Desktop: 6-column grid */}
+              {/* Desktop: 6-column grid — same curated mix */}
               <div className="hidden md:grid grid-cols-6 gap-1.5">
-                {siteConfig.gallery.slice(1, 7).map((g) => (
+                {[1, 9, 13, 15, 19, 4].map((idx) => siteConfig.gallery[idx]).filter(Boolean).map((g) => (
                   <div
                     key={g.src}
                     className="aspect-square relative overflow-hidden group bg-[color:var(--color-hairline-dark)]"

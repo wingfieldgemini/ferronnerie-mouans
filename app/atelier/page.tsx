@@ -79,8 +79,8 @@ export default function AtelierPage() {
             <Reveal delay={60} className="lg:col-span-6">
               <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
-                  src="/assets/gallery/staircase-exterior-modern.png"
-                  alt="Escalier métallique extérieur, atelier Hachani"
+                  src="/assets/gallery/escalier-03.jpg"
+                  alt="Escalier hélicoïdal acier, réalisation atelier Hachani, vue Méditerranée"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
