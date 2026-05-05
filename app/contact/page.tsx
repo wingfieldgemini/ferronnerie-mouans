@@ -18,14 +18,14 @@ export default function ContactPage() {
     <>
       {/* ── PAGE HERO ─── dark ─────────────────── */}
       <section
-        className="relative text-[color:var(--color-parchment)] flex flex-col min-h-[65vh]"
+        className="relative text-[color:var(--color-parchment)] flex flex-col min-h-[50vh] md:min-h-[65vh]"
         style={{
           background:
             "radial-gradient(ellipse 70% 60% at 100% 0%, rgba(184,150,46,0.04) 0%, transparent 70%), var(--color-ink)",
         }}
       >
         <div className="h-20 shrink-0" />
-        <div className="flex-1 flex flex-col justify-end container-page pb-20 md:pb-28">
+        <div className="flex-1 flex flex-col justify-end container-page pb-12 md:pb-28">
           <Reveal>
             <p className="eyebrow text-[color:var(--color-ember)] mb-4">Contact</p>
             <div className="w-16 h-px bg-[color:var(--color-iron)] mb-8" />
@@ -47,7 +47,7 @@ export default function ContactPage() {
       {/* ── FORM ─── light ──────────────────────── */}
       <section className="bg-parchment text-ink">
         <div className="container-page py-[var(--space-section)]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24">
             {/* Form */}
             <Reveal className="lg:col-span-7">
               <p className="text-[color:var(--color-smoke)] text-base mb-10 text-pretty max-w-lg">
@@ -113,7 +113,7 @@ export default function ContactPage() {
       {/* ── MAP ─── cream ───────────────────────── */}
       <section className="bg-cream border-t border-[color:var(--color-hairline)]">
         <div className="container-page py-16 md:py-20">
-          <div className="aspect-[16/6] w-full overflow-hidden">
+          <div className="aspect-[4/3] sm:aspect-[16/9] md:aspect-[16/6] w-full overflow-hidden">
             <iframe
               title={`Carte — ${siteConfig.legalName}`}
               src={`https://www.google.com/maps?q=${mapsQuery}&output=embed`}

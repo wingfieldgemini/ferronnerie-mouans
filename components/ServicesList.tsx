@@ -1,5 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { Plus, Minus, ArrowUpRight } from "lucide-react";
 import type { siteConfig } from "@/lib/siteConfig";
 
 type Service = (typeof siteConfig)["services"][number];
@@ -11,6 +14,8 @@ interface Props {
 }
 
 export function ServicesList({ services, tone = "dark", withLinks = false }: Props) {
+  const [openSlug, setOpenSlug] = useState<string | null>(null);
+
   const isDark = tone === "dark";
   const borderColor = isDark
     ? "border-[color:var(--color-hairline-dark)]"
@@ -26,11 +31,21 @@ export function ServicesList({ services, tone = "dark", withLinks = false }: Pro
     <ul className={`border-t ${borderColor}`}>
       {services.map((service, i) => {
         const n = String(i + 1).padStart(2, "0");
+        const isOpen = openSlug === service.slug;
+
         return (
-          <li key={service.slug} className={`group border-b ${borderColor}`}>
-            {/* Row */}
-            <div className="flex items-center justify-between py-9 md:py-11 gap-6 cursor-default">
-              <div className="flex items-baseline gap-6 md:gap-12 min-w-0">
+          <li key={service.slug} className={`border-b ${borderColor}`}>
+            {/* Row — button for full a11y + touch support */}
+            <button
+              type="button"
+              onClick={() => setOpenSlug(isOpen ? null : service.slug)}
+              aria-expanded={isOpen}
+              aria-controls={`service-${service.slug}-content`}
+              className={`w-full flex items-center justify-between py-7 md:py-11 gap-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-iron)] focus-visible:ring-inset transition-colors duration-300 ${
+                isOpen ? "opacity-100" : ""
+              }`}
+            >
+              <div className="flex items-baseline gap-4 md:gap-12 min-w-0">
                 <span
                   className="font-[family-name:var(--font-display)] text-[color:var(--color-iron)] shrink-0 leading-none italic"
                   style={{ fontSize: "clamp(1rem, 0.75rem + 0.75vw, 1.375rem)" }}
@@ -38,24 +53,42 @@ export function ServicesList({ services, tone = "dark", withLinks = false }: Pro
                   {n}
                 </span>
                 <span
-                  className={`font-[family-name:var(--font-display)] leading-tight tracking-[-0.025em] transition-colors duration-500 group-hover:text-[color:var(--color-iron)] truncate ${titleColor}`}
-                  style={{ fontSize: "clamp(1.75rem, 0.75rem + 3.5vw, 4rem)" }}
+                  className={`font-[family-name:var(--font-display)] leading-tight tracking-[-0.025em] transition-colors duration-300 min-w-0 break-words ${
+                    isOpen
+                      ? "text-[color:var(--color-iron)]"
+                      : `${titleColor} group-hover:text-[color:var(--color-iron)]`
+                  }`}
+                  style={{ fontSize: "clamp(1.5rem, 0.75rem + 3.5vw, 4rem)" }}
                 >
                   {service.title}
                 </span>
               </div>
-              <ArrowUpRight
-                size={24}
-                strokeWidth={1.25}
-                className="shrink-0 text-[color:var(--color-iron)] opacity-0 translate-x-1.5 -translate-y-1.5 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500 ease-[var(--ease-out-expo)]"
-              />
-            </div>
 
-            {/* Expandable detail — hover + focus-within accordion */}
-            <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr] transition-all duration-700 ease-[var(--ease-out-expo)] overflow-hidden">
+              {/* Toggle icon */}
+              <span
+                className={`shrink-0 text-[color:var(--color-iron)] transition-transform duration-300 ${
+                  isOpen ? "rotate-0" : ""
+                }`}
+                aria-hidden
+              >
+                {isOpen ? (
+                  <Minus size={20} strokeWidth={1.5} />
+                ) : (
+                  <Plus size={20} strokeWidth={1.5} />
+                )}
+              </span>
+            </button>
+
+            {/* Expandable detail */}
+            <div
+              id={`service-${service.slug}-content`}
+              className={`grid transition-all duration-500 ease-[var(--ease-out-expo)] overflow-hidden ${
+                isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              }`}
+            >
               <div className="overflow-hidden">
                 <div
-                  className={`pb-10 md:pb-14 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20 ${bodyColor}`}
+                  className={`pb-8 md:pb-14 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-20 ${bodyColor}`}
                 >
                   <p className="text-sm md:text-base leading-relaxed text-pretty">
                     {service.summary}
@@ -75,10 +108,11 @@ export function ServicesList({ services, tone = "dark", withLinks = false }: Pro
                       ))}
                     </ul>
                     {withLinks && (
-                      <div className="mt-8">
+                      <div className="mt-6 md:mt-8">
                         <Link
                           href={`/services/${service.slug}`}
-                          className="group/link inline-flex items-center gap-2 eyebrow text-[9px] text-[color:var(--color-iron)] hover:text-[color:var(--color-ember)] transition-colors duration-300"
+                          className="group/link inline-flex items-center gap-2 eyebrow text-[10px] text-[color:var(--color-iron)] hover:text-[color:var(--color-ember)] transition-colors duration-300 py-2"
+                          onClick={(e) => e.stopPropagation()}
                         >
                           Découvrir ce service
                           <ArrowUpRight

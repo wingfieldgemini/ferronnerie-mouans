@@ -44,14 +44,14 @@ export default async function ServiceDetailPage({ params }: Props) {
     <>
       {/* ── PAGE HERO ─── dark ─────────────────── */}
       <section
-        className="relative text-[color:var(--color-parchment)] flex flex-col min-h-[75vh]"
+        className="relative text-[color:var(--color-parchment)] flex flex-col min-h-[55vh] md:min-h-[75vh]"
         style={{
           background:
             "radial-gradient(ellipse 70% 60% at 100% 0%, rgba(201,168,76,0.05) 0%, transparent 70%), var(--color-ink)",
         }}
       >
         <div className="h-20 shrink-0" />
-        <div className="flex-1 flex flex-col justify-end container-page pb-20 md:pb-28">
+        <div className="flex-1 flex flex-col justify-end container-page pb-12 md:pb-28">
           {/* Breadcrumb */}
           <Reveal>
             <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 eyebrow text-[9px] text-[color:var(--color-mist)] mb-8">
@@ -379,7 +379,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               </CtaButton>
               <a
                 href={`tel:${siteConfig.contact.phone}`}
-                className="label text-[color:var(--color-smoke)] hover:text-[color:var(--color-iron)] transition-colors duration-300"
+                className="label text-[color:var(--color-smoke)] hover:text-[color:var(--color-iron)] transition-colors duration-300 py-3 inline-flex items-center"
               >
                 {siteConfig.contact.phoneDisplay}
               </a>

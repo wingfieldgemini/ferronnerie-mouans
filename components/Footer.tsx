@@ -8,19 +8,21 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-[color:var(--color-ink)] text-[color:var(--color-parchment)] border-t border-[color:var(--color-hairline-dark)]">
-      {/* Watermark */}
+      {/* Watermark — hidden on very narrow screens to prevent overflow */}
       <span
         aria-hidden="true"
-        className="pointer-events-none select-none absolute bottom-8 right-0 font-[family-name:var(--font-display)] leading-none tracking-widest text-right text-[color:var(--color-parchment)] opacity-[0.03]"
+        className="pointer-events-none select-none absolute bottom-8 right-0 hidden sm:block font-[family-name:var(--font-display)] leading-none tracking-widest text-right text-[color:var(--color-parchment)] opacity-[0.03]"
         style={{ fontSize: "clamp(4rem, 2rem + 8vw, 9rem)" }}
       >
         MOUANS-SARTOUX
       </span>
 
-      <div className="container-page py-20 md:py-28">
-        <div className="grid grid-cols-2 md:grid-cols-12 gap-10 md:gap-6">
-          {/* Brand */}
-          <div className="col-span-2 md:col-span-4">
+      <div className="container-page py-16 md:py-28">
+        {/* Mobile: single column. sm+: 2 cols. md+: 12-col grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-10 md:gap-6">
+
+          {/* Brand — full width at all sizes */}
+          <div className="sm:col-span-2 md:col-span-4">
             <div className="flex items-center gap-3 mb-5">
               <div className="size-10 shrink-0 rounded-full bg-[color:var(--color-parchment)]/8 p-1 flex items-center justify-center overflow-hidden">
                 <Image
@@ -59,17 +61,17 @@ export function Footer() {
               </div>
               <a
                 href={`tel:${siteConfig.contact.phone}`}
-                className="flex items-center gap-2 hover:text-[color:var(--color-parchment)] transition-colors"
+                className="flex items-center gap-2 hover:text-[color:var(--color-parchment)] transition-colors py-1 min-h-[44px]"
               >
-                <Phone size={13} strokeWidth={1.5} />
+                <Phone size={13} strokeWidth={1.5} shrink-0 />
                 {siteConfig.contact.phoneDisplay}
               </a>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="flex items-center gap-2 hover:text-[color:var(--color-parchment)] transition-colors"
+                className="flex items-start gap-2 hover:text-[color:var(--color-parchment)] transition-colors py-1 min-h-[44px]"
               >
-                <Mail size={13} strokeWidth={1.5} />
-                {siteConfig.contact.email}
+                <Mail size={13} strokeWidth={1.5} className="mt-1 shrink-0" />
+                <span className="break-all">{siteConfig.contact.email}</span>
               </a>
             </address>
           </div>
@@ -96,12 +98,12 @@ export function Footer() {
             <h3 className="eyebrow text-[color:var(--color-ember)] text-[10px] mb-4">
               Navigation
             </h3>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-1">
               {siteConfig.nav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-[color:var(--color-mist)] hover:text-[color:var(--color-parchment)] transition-colors"
+                    className="text-[color:var(--color-mist)] hover:text-[color:var(--color-parchment)] transition-colors py-2 inline-block text-sm min-h-[44px] flex items-center"
                   >
                     {item.label}
                   </Link>
@@ -111,14 +113,19 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 pt-6 border-t border-[color:var(--color-hairline-dark)] flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
-          <p className="text-[10px] tracking-wide text-[color:var(--color-mist)]/40">
-            {siteConfig.serviceArea.join(" · ")}
+        <div className="mt-12 md:mt-14 pt-6 border-t border-[color:var(--color-hairline-dark)] flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          {/* Service area — wraps on mobile */}
+          <p className="text-[10px] tracking-wide text-[color:var(--color-mist)]/40 flex flex-wrap gap-x-2 gap-y-1">
+            {siteConfig.serviceArea.map((area, i) => (
+              <span key={area}>
+                {area}{i < siteConfig.serviceArea.length - 1 ? " ·" : ""}
+              </span>
+            ))}
           </p>
           <div className="flex flex-wrap items-center gap-4 md:gap-6">
             <Link
               href="/mentions-legales"
-              className="text-xs text-[color:var(--color-mist)]/60 hover:text-[color:var(--color-mist)] transition-colors"
+              className="text-xs text-[color:var(--color-mist)]/60 hover:text-[color:var(--color-mist)] transition-colors py-1"
             >
               Mentions légales
             </Link>

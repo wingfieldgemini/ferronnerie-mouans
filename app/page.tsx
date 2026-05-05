@@ -219,12 +219,12 @@ export default function HomePage() {
               className="-mx-[clamp(1.5rem,1rem+3.5vw,4rem)]"
               aria-label="Galerie de réalisations"
             >
-              {/* Mobile: horizontal scroll */}
-              <div className="flex md:hidden gap-1 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {/* Mobile: horizontal scroll — pl- adds back the padding removed by -mx- parent */}
+              <div className="flex md:hidden gap-1 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pl-[clamp(1.5rem,1rem+3.5vw,4rem)] scroll-pl-[clamp(1.5rem,1rem+3.5vw,4rem)]">
                 {siteConfig.gallery.slice(1, 7).map((g) => (
                   <div
                     key={g.src}
-                    className="flex-none w-[60vw] aspect-square relative overflow-hidden group bg-[color:var(--color-hairline-dark)] snap-start"
+                    className="flex-none w-[75vw] aspect-square relative overflow-hidden group bg-[color:var(--color-hairline-dark)] snap-start"
                   >
                     <Image
                       src={g.src}
@@ -404,7 +404,7 @@ export default function HomePage() {
                   </CtaButton>
                   <a
                     href={`tel:${siteConfig.contact.phone}`}
-                    className="label text-[color:var(--color-smoke)] hover:text-[color:var(--color-iron)] transition-colors duration-300"
+                    className="label text-[color:var(--color-smoke)] hover:text-[color:var(--color-iron)] transition-colors duration-300 py-3 inline-flex items-center"
                   >
                     {siteConfig.contact.phoneDisplay}
                   </a>

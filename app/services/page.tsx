@@ -15,14 +15,14 @@ export default function ServicesPage() {
     <>
       {/* ── PAGE HERO ─── dark ─────────────────── */}
       <section
-        className="relative text-[color:var(--color-parchment)] flex flex-col min-h-[80vh]"
+        className="relative text-[color:var(--color-parchment)] flex flex-col min-h-[60vh] md:min-h-[80vh]"
         style={{
           background:
             "radial-gradient(ellipse 70% 60% at 100% 0%, rgba(184,150,46,0.04) 0%, transparent 70%), var(--color-ink)",
         }}
       >
         <div className="h-20 shrink-0" />
-        <div className="flex-1 flex flex-col justify-end container-page pb-20 md:pb-28">
+        <div className="flex-1 flex flex-col justify-end container-page pb-12 md:pb-28">
           <Reveal>
             <p className="eyebrow text-[color:var(--color-ember)] mb-4">Savoir-faire</p>
             <div className="w-16 h-px bg-[color:var(--color-iron)] mb-8" />

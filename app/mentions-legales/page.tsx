@@ -22,7 +22,7 @@ export default function MentionsLegalesPage() {
         }}
       >
         <div className="h-20 shrink-0" />
-        <div className="flex-1 flex flex-col justify-end container-page pb-16 md:pb-20">
+        <div className="flex-1 flex flex-col justify-end container-page pb-10 md:pb-20">
           <p className="eyebrow text-[color:var(--color-ember)] mb-4">Légal</p>
           <div className="w-16 h-px bg-[color:var(--color-iron)] mb-8" />
           <h1

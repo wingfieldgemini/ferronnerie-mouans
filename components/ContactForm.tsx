@@ -60,7 +60,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="group inline-flex items-center gap-3 bg-[color:var(--color-ink)] text-[color:var(--color-parchment)] px-8 py-4 eyebrow text-[10px] hover:bg-[color:var(--color-iron)] hover:text-[color:var(--color-ink)] focus-visible:bg-[color:var(--color-iron)] focus-visible:text-[color:var(--color-ink)] transition-all duration-500 ease-[var(--ease-out-expo)] disabled:opacity-50 focus:outline-none"
+          className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[color:var(--color-ink)] text-[color:var(--color-parchment)] px-8 py-4 eyebrow text-[10px] min-h-[52px] hover:bg-[color:var(--color-iron)] hover:text-[color:var(--color-ink)] focus-visible:bg-[color:var(--color-iron)] focus-visible:text-[color:var(--color-ink)] transition-all duration-500 ease-[var(--ease-out-expo)] disabled:opacity-50 focus:outline-none"
         >
           {status === "submitting" ? "Envoi…" : "Envoyer ma demande"}
           <ArrowUpRight
